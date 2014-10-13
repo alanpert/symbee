@@ -1,0 +1,26 @@
+.wrap-all {
+	width: 640px;
+	margin: 0 auto;
+}
+
+.wrap-all .topo {
+	background: url(../img/login-bg-topo.png) no-repeat;
+	width: 640px;
+	height: 280px;
+	overflow: hidden;
+}
+
+.wrap-all .topo img {
+	display: block;
+	margin: 78px auto 0px;
+}
+
+.wrap-all .btn-loginfb {
+	background: url(../img/fb-login.png) no-repeat;
+	width: 320px;
+	height: 44px;
+	display: block;
+	overflow: hidden;
+	text-indent: -999em;
+	margin: 170px auto 0;
+}

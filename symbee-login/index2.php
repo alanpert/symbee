@@ -1,9 +1,9 @@
 <?php
 	include('fbconect.php');
 	include('php/conect.php');
-	echo ("<br/>");
-	echo "$dbname";
-	echo ("<br/>");
+	// echo ("<br/>");
+	// echo "$dbname";
+	// echo ("<br/>");
 
 	if ($session) {
 		$userPictureURL = "http://graph.facebook.com/".$userID."/picture?type=large";
@@ -68,14 +68,14 @@
 </head>
 <body>
 
+<div class="wrap-all">
+	<div class="topo">
+		<img src="img/symbee-logo.png" width="317" height="122" alt="Symbee" />
+	</div>
 
+	<?php echo '<a href="' . $helper->getLoginUrl() . '" class="btn-loginfb">Entrar com Facebook</a>'; ?>
 
-<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button> -->
-
-<div id="status">
 </div>
-<p> TESTE </p>
 
 </body>
 </html>

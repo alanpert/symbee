@@ -67,7 +67,7 @@ if ( isset( $session ) ) {
 
 } else {
   // show login url
-  echo '<a href="' . $helper->getLoginUrl() . '" class="btn-loginfb">Entrar com Facebook</a>';
+  //echo '<a href="' . $helper->getLoginUrl() . '" class="btn-loginfb">Entrar com Facebook</a>';
 }
 
 ?>
