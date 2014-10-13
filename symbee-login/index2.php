@@ -62,6 +62,9 @@
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <!--<script type="text/javascript" src="js/facebook-login.js"></script>-->
 
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/symbee.css">
+
 </head>
 <body>
 

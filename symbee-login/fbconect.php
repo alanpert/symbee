@@ -55,7 +55,7 @@ if ( isset( $session ) ) {
   // graph api request for user data
   $request = new FacebookRequest( $session, 'GET', '/me' );
   $response = $request->execute();
-  
+
   // get response
   $graphObject = $response->getGraphObject();
 
@@ -67,7 +67,7 @@ if ( isset( $session ) ) {
 
 } else {
   // show login url
-  echo '<a href="' . $helper->getLoginUrl() . '">Login</a>';
+  echo '<a href="' . $helper->getLoginUrl() . '" class="btn-loginfb">Entrar com Facebook</a>';
 }
 
 ?>
