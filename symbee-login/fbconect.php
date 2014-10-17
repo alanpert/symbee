@@ -37,7 +37,7 @@ use Facebook\GraphObject;
 FacebookSession::setDefaultApplication('709089719179470','f6dde677f96d42beee8ab9a29edcbea8');
 
 // login helper with redirect_uri
-$helper = new FacebookRedirectLoginHelper( 'http://symbee.com.br/symbee-login/index2.php' );
+$helper = new FacebookRedirectLoginHelper( 'http://symbee.com.br/symbee-login/login.php' );
 
 try {
   $session = $helper->getSessionFromRedirect();
