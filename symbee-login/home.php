@@ -4,41 +4,43 @@
   include('php/conect.php');
 
 
-  if(!isset($error)) {
-  //no error
-  $userPictureURL = "http://graph.facebook.com/".$userID."/picture?type=large";
+  if ($session) {
+    if(!isset($error)) {
+    //no error
+    $userPictureURL = "http://graph.facebook.com/".$userID."/picture?type=large";
 
-  $sthandler = $connection->prepare("SELECT email FROM usuarios WHERE email = :email");
-  $sthandler->bindParam(':email', $_SESSION['user']);
-  $sthandler->execute();
+    $sthandler = $connection->prepare("SELECT email FROM usuarios WHERE email = :email");
+    $sthandler->bindParam(':email', $_SESSION['user']);
+    $sthandler->execute();
 
-    if($sthandler->rowCount() > 0) {
-      echo("<script>console.log('PHP: Usuário já cadastrado.');</script>");
+      if($sthandler->rowCount() > 0) {
+        echo("<script>console.log('PHP: Usuário já cadastrado.');</script>");
+      } else {
+        //Securly insert into database
+        $sql = "INSERT INTO usuarios(
+                                  email,
+                                  nome,
+                                  foto) VALUES (
+                                  :email, 
+                                  :nome, 
+                                  :foto)";
+                                          
+        $stmt = $connection->prepare($sql);
+                                                      
+        $stmt->bindParam(':email', $userEmail, PDO::PARAM_STR);       
+        $stmt->bindParam(':nome', $userName, PDO::PARAM_STR); 
+        $stmt->bindParam(':foto', $userPictureURL, PDO::PARAM_STR);
+     
+                                              
+        $stmt->execute(); 
+        echo("<script>console.log('PHP: Usuário adicionado ao Banco de Dados.');</script>");
+        echo("<script>window.location.reload(true);</script>");
+      }
+
     } else {
-      //Securly insert into database
-      $sql = "INSERT INTO usuarios(
-                                email,
-                                nome,
-                                foto) VALUES (
-                                :email, 
-                                :nome, 
-                                :foto)";
-                                        
-      $stmt = $connection->prepare($sql);
-                                                    
-      $stmt->bindParam(':email', $userEmail, PDO::PARAM_STR);       
-      $stmt->bindParam(':nome', $userName, PDO::PARAM_STR); 
-      $stmt->bindParam(':foto', $userPictureURL, PDO::PARAM_STR);
-   
-                                            
-      $stmt->execute(); 
-      echo("<script>console.log('PHP: Usuário adicionado ao Banco de Dados.');</script>");
-      echo("<script>window.location.reload(true);</script>");
+      echo "error occured: ".$error;
+      exit();
     }
-
-  } else {
-    echo "error occured: ".$error;
-    exit();
   }
 
 
@@ -60,8 +62,11 @@
         foreach($result as $row) {
           echo("<script>console.log('PHP: Usuário já cadastrado.');</script>");
           //print_r($row);
-          echo("Olá, ".$row[1].". Seja Bem-Vindo!");
-          echo("<img src='".$row[2]."' alt='' />");
+          //echo("Olá, ".$row[1].". Seja Bem-Vindo!");
+          //echo("<img src='".$row[2]."' alt='' />");
+          $varemail = $row[0];
+          $varnome = $row[1];
+          $varurlfoto = $row[2];
         }   
       } else {
         echo "No rows returned.";
@@ -81,7 +86,6 @@
     }
   }
 
-
   
 
 ?>
@@ -96,18 +100,24 @@
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <!--<script type="text/javascript" src="js/facebook-login.js"></script>-->
 
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
   <link rel="stylesheet" type="text/css" href="css/symbee.css">
 
 </head>
 <body>
 
-<div class="wrap-all">
-	<div class="topo">
-		<img src="img/symbee-logo.png" width="317" height="122" alt="Symbee" />
-	</div>
+<div class="mobile home-wrap">
 
-  HOME
+  <div class="minibar">
+    <div class="sidebar">
+
+
+      <?php echo '<div class="foto" style="background: url('.$varurlfoto.') center no-repeat"> </div> '; ?>
+      <?php echo '<p class="nome"> '.$varnome.' </p>'; ?>
+      <?php echo '<p class="email"> '.$varemail.' </p>'; ?>
+
+    </div>
+  </div>
 
   <a href="deletecookie.php"> Logout </a>
 

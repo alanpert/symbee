@@ -1,26 +1,118 @@
-.wrap-all {
-	width: 640px;
-	margin: 0 auto;
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+	vertical-align:baseline;
 }
 
-.wrap-all .topo {
-	background: url(../img/login-bg-topo.png) no-repeat;
+h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
+	font-family: 'Open Sans',sans-serif;
+	color: #333;
+}
+
+/* ALL */
+.mobile {
 	width: 640px;
-	height: 280px;
+	height: 1008px;
+	margin: 0 auto;
 	overflow: hidden;
 }
 
-.wrap-all .topo img {
-	display: block;
-	margin: 78px auto 0px;
+
+/* PÁGINA LOGIN */
+.login-wrap {	
+	background: url(../img/login-bg.jpg) no-repeat -600px 0px;	
 }
 
-.wrap-all .btn-loginfb {
+.login-wrap .logo {
+	display: block;
+	margin: 47px auto 0px;
+}
+
+.login-wrap .login-box {
+  background: #fff;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  box-shadow: 0 0 3px -1px #000;
+  -webkit-box-shadow: 0 0 3px -1px #000;
+  -moz-box-shadow: 0 0 3px -1px #000;
+  -ms-box-shadow: 0 0 3px -1px #000;
+  -o-box-shadow: 0 0 3px -1px #000;
+  margin: 130px auto 0px;
+  padding: 35px;
+  width: 350px;
+  height: 362px;
+}
+
+.login-wrap .login-box h2 {
+	font-size: 25px;
+	text-align: center;
+}
+
+.login-wrap .login-box p {
+	font-size: 16px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.login-wrap .login-box .btn-loginfb {
 	background: url(../img/fb-login.png) no-repeat;
-	width: 320px;
-	height: 44px;
+	width: 212px;
+	height: 68px;
 	display: block;
 	overflow: hidden;
 	text-indent: -999em;
-	margin: 170px auto 0;
+	margin: 55px auto 0;
 }
+
+.login-wrap .login-box .saiba-mais {
+	font-size: 16px;
+	color: #f39f35;
+	text-align: right;
+	display: block;
+	margin-top: 70px;
+}
+
+
+/* HOME */
+.home-wrap {
+
+}
+
+.home-wrap .minibar {
+	height: 70px;
+	background: #666;
+	position: relative;
+}
+
+.home-wrap .minibar .sidebar {
+	width: 60%;
+	border-left: 1px solid #000;
+	background: #e5e5e5;
+	position: absolute;
+	height: 1008px;
+	right: 0px;
+}
+
+.home-wrap .minibar .sidebar .foto {
+	display: block;
+	width: 200px;
+	height: 200px;
+	margin: 50px auto 0;
+}
+
+.home-wrap .minibar .sidebar .nome {
+	font-size: 25px;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 5px;
+}
+
+.home-wrap .minibar .sidebar .email {
+	font-size: 16px;
+	text-align: center;
+}
+

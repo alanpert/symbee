@@ -1,5 +1,5 @@
 <?php 
-include('fbconect.php');
+  include('fbconect.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,18 +11,25 @@ include('fbconect.php');
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <!--<script type="text/javascript" src="js/facebook-login.js"></script>-->
 
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
   <link rel="stylesheet" type="text/css" href="css/symbee.css">
 
 </head>
 <body>
 
-<div class="wrap-all">
-	<div class="topo">
-		<img src="img/symbee-logo.png" width="317" height="122" alt="Symbee" />
-	</div>
+<div class="mobile login-wrap">
 
-	<?php echo '<a href="' . $helper->getLoginUrl() . '" class="btn-loginfb">Entrar com Facebook</a>'; ?>
+	<img src="img/symbee-logo.png" width="317" height="122" alt="Symbee" class="logo" />
+
+  <div class="login-box">
+    <h2>Bem-vindo, escritor!</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel bibendum dui, vel suscipit turpis. </p>
+    <?php echo '<a href="' . $helper->getLoginUrl() . '" class="btn-loginfb">Entrar com Facebook</a>'; ?>
+    <a href="#" class="saiba-mais">Saiba mais sobre o aplicativo</a>
+
+  </div>
+
+	
 
 </div>
 
