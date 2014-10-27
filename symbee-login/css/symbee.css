@@ -9,27 +9,42 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 	font-family: 'Open Sans',sans-serif;
 	color: #333;
 }
-
+/* ----------------------------- */
 /* ALL */
-.mobile {
-	width: 640px;
-	height: 1008px;
+/* ----------------------------- */
+.mobile-wrap {	
 	margin: 0 auto;
+	overflow: hidden;
+	width: 640px;
+}
+
+.img-replace {
+	text-indent: -999em;
 	overflow: hidden;
 }
 
 
+/* ----------------------------- */
 /* PÁGINA LOGIN */
-.login-wrap {	
-	background: url(../img/login-bg.jpg) no-repeat -600px 0px;	
+/* ----------------------------- */
+.login-bg {
+/*	width: 640px;
+	height: 1008px;*/
+	background: url(../img/login-bg.jpg) center center no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100%;
+	width: 100%;
+	clear: both;
+	display: table;
 }
 
-.login-wrap .logo {
+.login .logo {
 	display: block;
 	margin: 47px auto 0px;
 }
 
-.login-wrap .login-box {
+.login .login-box {
   background: #fff;
   border-radius: 7px;
   -webkit-border-radius: 7px;
@@ -47,18 +62,18 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
   height: 362px;
 }
 
-.login-wrap .login-box h2 {
+.login .login-box h2 {
 	font-size: 25px;
 	text-align: center;
 }
 
-.login-wrap .login-box p {
+.login .login-box p {
 	font-size: 16px;
 	text-align: center;
 	margin-top: 40px;
 }
 
-.login-wrap .login-box .btn-loginfb {
+.login .login-box .btn-loginfb {
 	background: url(../img/fb-login.png) no-repeat;
 	width: 212px;
 	height: 68px;
@@ -68,7 +83,7 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 	margin: 55px auto 0;
 }
 
-.login-wrap .login-box .saiba-mais {
+.login .login-box .saiba-mais {
 	font-size: 16px;
 	color: #f39f35;
 	text-align: right;
@@ -77,42 +92,132 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 }
 
 
+/* ----------------------------- */
 /* HOME */
-.home-wrap {
-
+/* ----------------------------- */
+.home {
+	width: 640px;
+	height: 1008px;
+	margin: 0 auto;
 }
 
-.home-wrap .minibar {
+.home .minibar {
 	height: 70px;
 	background: #666;
 	position: relative;
+	background: #fff;
+	border-bottom: 5px solid #f39f35;
 }
 
-.home-wrap .minibar .sidebar {
-	width: 60%;
+.home .minibar .minibar-logo {
+	display: inline-block;
+	width: 140px;
+	height: 53px;
+	margin-left: 50px;
+	margin-top: 9px;
+}
+
+.home .minibar .btn-sidebar {
+	width: 77px;
+	height: 70px;
+	background: url(../img/btn-sidemenu.jpg) no-repeat;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+
+/* SideBar */
+.home .minibar .sidebar {
+	width: 384px;
 	border-left: 1px solid #000;
 	background: #e5e5e5;
 	position: absolute;
 	height: 1008px;
 	right: 0px;
+	top: 0px;
+	display: none;
 }
 
-.home-wrap .minibar .sidebar .foto {
+.home .minibar .sidebar .foto {
 	display: block;
 	width: 200px;
 	height: 200px;
 	margin: 50px auto 0;
 }
 
-.home-wrap .minibar .sidebar .nome {
+.home .minibar .sidebar .foto .foto-mask {
+	display: block;
+	width: 200px;
+	height: 200px;
+	background: url(../img/mascara-foto-perfil.png) no-repeat;
+}
+
+.home .minibar .sidebar .nome {
 	font-size: 25px;
 	text-align: center;
-	margin-top: 40px;
+	margin-top: 22px;
 	margin-bottom: 5px;
 }
 
-.home-wrap .minibar .sidebar .email {
+.home .minibar .sidebar .email {
 	font-size: 16px;
 	text-align: center;
 }
 
+.home .minibar .sidebar ul {
+	margin-top: 22px;
+}
+
+
+.home .minibar .sidebar ul .itens-menu {
+	display: block;
+	background: #333;
+	font-size: 18px;
+	border-top: 1px solid #cccccc;
+}
+
+.home .minibar .sidebar ul .itens-menu a {
+	color: #ccc;
+	text-decoration: none;
+	padding: 20px 0px 20px 64px;
+	display: block;
+}
+
+	.home .minibar .sidebar ul .sair {
+		background: url(../img/sair-icon.png) 34px 17px no-repeat #333;
+	}
+	.home .minibar .sidebar ul .sair a {
+		color: #a3a3a3;
+	}
+	
+
+.home .minibar .sideout {
+	display: block;
+	height: 1008px;
+	width: 255px;
+	position: absolute;
+	top: 0px;
+	left: 0px;	
+	display: none;
+}
+
+
+/* Minhas Historias */
+.home .minhashistorias {
+	clear: both;
+	display: table;
+}
+
+.home .minhashistorias .historia-thumb {
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	float: left;
+}
+
+.home .minhashistorias .historia-thumb .historia-link {
+	display: block;
+	height: 100%;
+	background: #bbb;
+}

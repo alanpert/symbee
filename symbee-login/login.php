@@ -17,20 +17,22 @@
 </head>
 <body>
 
-<div class="mobile login-wrap">
+<div class="login-bg">
 
-	<img src="img/symbee-logo.png" width="317" height="122" alt="Symbee" class="logo" />
+  <div class="mobile-wrap login">
+  	<img src="img/symbee-logo.png" width="317" height="122" alt="Symbee" class="logo" />
 
-  <div class="login-box">
-    <h2>Bem-vindo, escritor!</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel bibendum dui, vel suscipit turpis. </p>
-    <?php 
-      $params = array(
-        "scope" => "public_profile,email");
-      echo '<a href="' . $helper->getLoginUrl($params) . '" class="btn-loginfb">Entrar com Facebook</a>'; 
-    ?>
-    <a href="#" class="saiba-mais">Saiba mais sobre o aplicativo</a>
+    <div class="login-box">
+      <h2>Bem-vindo, escritor!</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel bibendum dui, vel suscipit turpis. </p>
+      <?php 
+        $params = array(
+          "scope" => "public_profile,email");
+        echo '<a href="' . $helper->getLoginUrl($params) . '" class="btn-loginfb">Entrar com Facebook</a>'; 
+      ?>
+      <a href="#" class="saiba-mais">Saiba mais sobre o aplicativo</a>
 
+    </div>
   </div>
 
 	

@@ -51,7 +51,7 @@
     echo("<script>console.log('PHP: HOME:Cookie Email: ".$cookieemail."');</script>");
     
 
-
+    // CONECTAR NO BD E VERIFICAR O LOGIN
     try {
       $stmt = $connection->prepare('SELECT * FROM usuarios WHERE email = :email');
       $stmt->execute(array('email' => $cookieemail));
@@ -76,7 +76,6 @@
     }
 
 
-
   } else {
     echo("<script>console.log('PHP: COOKIE ERRo.');</script>");
     if ($session) {
@@ -98,28 +97,66 @@
   <title>Symbee - Login</title>
   
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-  <!--<script type="text/javascript" src="js/facebook-login.js"></script>-->
-
-  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+  <script type="text/javascript" src="js/symbee-geral.js"></script>
   <link rel="stylesheet" type="text/css" href="css/symbee.css">
 
 </head>
 <body>
 
-<div class="mobile home-wrap">
+<div class="mobile-wrap home">
 
   <div class="minibar">
-    <div class="sidebar">
+    <a href="#" class="minibar-logo"> <img src="img/minibar-logo.png" width="140" height="53" alt="Symbee" /> </a>
+    <a href="#" class="btn-sidebar img-replace" id="btn-sidebar"> SideBar </a>
 
+    <div class="sideout" id="sideout">
+    </div>
+    <div class="sidebar" id="sidebar">
+      <div class="foto" style="background: url('<?php echo ($varurlfoto); ?>') center no-repeat">
+          <div class="foto-mask"></div>
+      </div>
+      <p class="nome"> <?php echo ($varnome); ?> </p>
+      <p class="email"> <?php echo ($varemail); ?> </p>
 
-      <?php echo '<div class="foto" style="background: url('.$varurlfoto.') center no-repeat"> </div> '; ?>
-      <?php echo '<p class="nome"> '.$varnome.' </p>'; ?>
-      <?php echo '<p class="email"> '.$varemail.' </p>'; ?>
-
+      <ul>
+        <li class="itens-menu"><a href="#"> Menu 1 </a></li>
+        <li class="itens-menu"><a href="#"> Menu 2 </a></li>
+        <li class="itens-menu"><a href="#"> Menu 3 </a></li>
+        <li class="itens-menu sair"><a href="deletecookie.php"> Sair </a></li>
+      </ul>
     </div>
   </div>
 
-  <a href="deletecookie.php"> Logout </a>
+  <!-- MINHAS HISTORIAS -->
+  <div class="minhashistorias">
+  <?php
+    // TRAZENDO AS NARRATIVAS RELACIONADAS COM O USUARIO
+    try {
+      $stmt = $connection->prepare('SELECT * FROM tblNarrativas WHERE criador = :email');
+      $stmt->execute(array('email' => $cookieemail));
+     
+      $result = $stmt->fetchAll();
+     
+      if ( count($result) ) { 
+        foreach($result as $row) {
+          //print_r($row);
+          $narrativanome = $row[nome];
+          //echo $narrativanome;
+          echo ("<div class='historia-thumb'>");
+          echo ("<a href='#' class='historia-link'>");
+          echo ("<p>".$narrativanome."</p>");
+          echo ("</a>");
+          echo ("</div>");
+        }   
+      } else {
+        echo "No rows returned.";
+      }
+    } catch(PDOException $e) {
+        echo 'ERROR: ' . $e->getMessage();
+    }
+  ?>
+  </div>
+  <!-- /MINHAS HISTORIAS -->
 
 </div>
 
