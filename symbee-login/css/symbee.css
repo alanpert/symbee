@@ -5,13 +5,30 @@
 	vertical-align:baseline;
 }
 
-h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
+h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li,label {
 	font-family: 'Open Sans',sans-serif;
 	color: #333;
 }
 /* ----------------------------- */
 /* ALL */
 /* ----------------------------- */
+
+input[type="text"] {
+	height: 50px;
+}
+
+input {
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;
+	border: 1px solid #ccc;
+	outline: 0;
+	padding-left: 20px;
+	width: 100%;
+}
+
 .mobile-wrap {	
 	margin: 0 auto;
 	overflow: hidden;
@@ -92,16 +109,9 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 }
 
 
-/* ----------------------------- */
-/* HOME */
-/* ----------------------------- */
-.home {
-	width: 640px;
-	height: 1008px;
-	margin: 0 auto;
-}
 
-.home .minibar {
+/* MINIBAR */
+.minibar {
 	height: 70px;
 	background: #666;
 	position: relative;
@@ -109,7 +119,7 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 	border-bottom: 5px solid #f39f35;
 }
 
-.home .minibar .minibar-logo {
+.minibar .minibar-logo {
 	display: inline-block;
 	width: 140px;
 	height: 53px;
@@ -117,7 +127,7 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 	margin-top: 9px;
 }
 
-.home .minibar .btn-sidebar {
+.minibar .btn-sidebar {
 	width: 77px;
 	height: 70px;
 	background: url(../img/btn-sidemenu.jpg) no-repeat;
@@ -128,10 +138,9 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 
 
 /* SideBar */
-.home .minibar .sidebar {
-	width: 384px;
-	border-left: 1px solid #000;
-	background: #e5e5e5;
+.minibar .sidebar {
+	width: 300px;
+	background: #333333;
 	position: absolute;
 	height: 1008px;
 	right: 0px;
@@ -139,69 +148,93 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 	display: none;
 }
 
-.home .minibar .sidebar .foto {
+.minibar .sidebar .foto {
 	display: block;
-	width: 200px;
-	height: 200px;
-	margin: 50px auto 0;
+	width: 300px;
+	height: 204px;
+	margin: 75px auto 0;
 }
 
-.home .minibar .sidebar .foto .foto-mask {
+.minibar .sidebar .foto .foto-mask {
 	display: block;
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 204px;
 	background: url(../img/mascara-foto-perfil.png) no-repeat;
 }
 
-.home .minibar .sidebar .nome {
-	font-size: 25px;
+.minibar .sidebar .nome {
+	font-size: 22px;
+	color: #ffffff;
 	text-align: center;
 	margin-top: 22px;
-	margin-bottom: 5px;
+	margin-bottom: 8px;
 }
 
-.home .minibar .sidebar .email {
-	font-size: 16px;
+.minibar .sidebar .email {
+	font-size: 14px;
+	color: #ffffff;
 	text-align: center;
 }
 
-.home .minibar .sidebar ul {
-	margin-top: 22px;
-}
-
-
-.home .minibar .sidebar ul .itens-menu {
+.minibar .sidebar .separador {
 	display: block;
-	background: #333;
+	width: 220px;
+	height: 1px;
+	background: #cccccc;
+	margin: 28px auto 0px;
+}
+
+.minibar .sidebar ul {
+	margin-top: 28px;
+}
+
+
+.minibar .sidebar ul .itens-menu {
+	display: block;
+	background: #434343;
 	font-size: 18px;
-	border-top: 1px solid #cccccc;
+	/*border-top: 1px solid #cccccc;*/
 }
 
-.home .minibar .sidebar ul .itens-menu a {
-	color: #ccc;
+.minibar .sidebar ul .itens-menu a {
+	color: #ffffff;
 	text-decoration: none;
-	padding: 20px 0px 20px 64px;
+	padding: 20px 0px 20px 60px;
 	display: block;
+	font-size: 17px;
+	margin-bottom: 1px;
 }
 
-	.home .minibar .sidebar ul .sair {
-		background: url(../img/sair-icon.png) 34px 17px no-repeat #333;
+	.minibar .sidebar ul .sair {
+		background: url(../img/sair-icon.png) 26px 17px no-repeat #252525;
 	}
-	.home .minibar .sidebar ul .sair a {
+	.minibar .sidebar ul .sair a {
 		color: #a3a3a3;
 	}
 	
+.minibar .sidebar .logo-legenda {
+	display: block;
+	margin: 130px auto 0px;
+}
 
-.home .minibar .sideout {
+.minibar .sideout {
 	display: block;
 	height: 1008px;
-	width: 255px;
+	width: 340px;
 	position: absolute;
 	top: 0px;
 	left: 0px;	
 	display: none;
 }
 
+/* ----------------------------- */
+/* HOME */
+/* ----------------------------- */
+.home {
+	width: 640px;
+	height: 1008px;
+	margin: 0 auto;
+}
 
 /* Minhas Historias */
 .home .minhashistorias {
@@ -220,4 +253,186 @@ h1,h2,h3,h4,h5,p,blockquote,cite,span,input,textarea,select,a,li {
 	display: block;
 	height: 100%;
 	background: #bbb;
+}
+
+/* ----------------------------- */
+/* HOME */
+/* ----------------------------- */
+.nova-historia {
+	height: 1008px;
+}
+
+.nova-historia .titulo {
+	margin-top: 50px;
+	text-align: center;
+	font-size: 40px;
+}
+
+.nova-historia .subtitulo {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+.nova-historia .criar-wrap {
+	overflow: hidden;
+	background: #efe7db;
+}
+
+.nova-historia .criar-wrap .box-criar-historia {
+	display: table;
+	clear: both;
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;
+	box-shadow: 0 0 3px -1px #000;
+	-webkit-box-shadow: 0 0 3px -1px #000;
+	-moz-box-shadow: 0 0 3px -1px #000;
+	-ms-box-shadow: 0 0 3px -1px #000;
+	-o-box-shadow: 0 0 3px -1px #000;
+	margin: 70px auto 50px;
+	padding: 35px;
+	width: 500px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+/* INPUT NOME HISTÓRIA */
+.nova-historia .criar-wrap .box-criar-historia input[type="text"] {
+	height: 60px;
+	font-size: 16px;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .desc-input {
+	font-size: 14px;
+	font-style: italic;
+	color: #666;
+	margin: 10px 0px;
+}
+
+/* SELECT CATEGORIA */
+.nova-historia .criar-wrap .box-criar-historia .selecione-cat {
+	background: url(../img/select-arrow.png) 93% top no-repeat;
+	border: 1px solid #ccc;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;
+	color: #a6a6a6;
+	cursor: pointer;
+	display: block;
+	height: 60px;
+	margin-top: 30px;
+	padding-left: 20px;
+	padding-top: 17px;
+	transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-webkit-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-moz-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-ms-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-o-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .selecione-cat.active {
+	background-color: #f39f35;
+	background-position: 93% bottom;
+	color: #fff;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .fake-select {
+	background: #ccc;
+	height: 0;
+	overflow: hidden;
+	transition: all .3s cubic-bezier(0.19,1,0.22,1);
+	-webkit-transition: all .3s cubic-bezier(0.19,1,0.22,1);
+	-moz-transition: all .3s cubic-bezier(0.19,1,0.22,1);
+	-ms-transition: all .3s cubic-bezier(0.19,1,0.22,1);
+	-o-transition: all .3s cubic-bezier(0.19,1,0.22,1);
+	width: 430px;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .fake-select.open {
+	height: 360px;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .fake-select li {
+	box-sizing: border-box;
+	background: #f39f35;
+	color: #fff;
+	height: 60px;
+	cursor: pointer;
+	padding: 20px 20px 0;
+	transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-webkit-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-moz-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-ms-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-o-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	border-bottom: 1px solid #fff;
+}
+
+/* NUM JOGADORES */
+.nova-historia .criar-wrap .box-criar-historia .jogadores-titulo {
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .radios {
+	margin-top: 20px;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .radios label {
+	cursor: pointer;
+	font-size: 15px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .radios label.selected {
+	color: #f39f35;
+	font-weight: 700;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.nova-historia .criar-wrap .box-criar-historia input[type="radio"] {
+	width: auto;
+}
+
+.nova-historia .criar-wrap .box-criar-historia .radios input {
+	margin-right: 40px;
+}
+
+/* BTN CRIAR */
+.nova-historia .criar-wrap .box-criar-historia .btn-criar {
+	background-color: #f39f35;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;
+	cursor: pointer;
+	color: #fff;
+	padding: 10px 50px;
+	text-align: center;
+	transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-webkit-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-moz-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-ms-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	-o-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
+	float: right;
+	margin-top: 30px;
 }
