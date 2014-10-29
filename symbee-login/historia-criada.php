@@ -18,7 +18,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="initial-scale=0.5, maximum-scale=2, minimum-scale=0.5, user-scalable=yes, width=320px"/>
-  <title>Symbee - História</title>
+  <title>  Criando... <?php echo ($nomehistoria); ?> </title>
   
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="js/symbee-geral.js"></script>
@@ -54,10 +54,11 @@
       <img src="img/symbee-logo-legenda.png" width="200" height="76" alt="Symbee - Narrativas Colaborativas" class="logo-legenda" />
     </div>
   </div>
-
-  <?php echo ($nomehistoria); ?>
-  <?php echo ($generohistoria); ?>
-  <?php echo ($numjogadores); ?>
+  <p> Nome da História: <?php echo ($nomehistoria); ?></p>
+  <p> Gênero: <?php echo ($generohistoria); ?> </p>
+  <p> Numero de jogadores: <?php echo ($numjogadores); ?> </p>
+  <br/ >
+  <p> Criado por: <?php echo ($varnome); ?> </p>
 
 
 </div>
