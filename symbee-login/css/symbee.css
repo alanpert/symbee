@@ -143,9 +143,8 @@ input {
 	background: #333333;
 	position: absolute;
 	height: 1008px;
-	right: 0px;
+	right: -300px;
 	top: 0px;
-	display: none;
 }
 
 .minibar .sidebar .foto {
@@ -435,4 +434,12 @@ input {
 	-o-transition: all .2s cubic-bezier(0.175,0.885,0.32,3);
 	float: right;
 	margin-top: 30px;
+}
+
+
+/* ----------------------------- */
+/* HISTÓRIA CRIADA */
+/* ----------------------------- */
+.historia-criada {
+	height: 1008px;
 }

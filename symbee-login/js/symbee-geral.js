@@ -1,18 +1,18 @@
 $(document).ready(function() {
 
 // ********************************
-// HOME LOGADO
+// SIDE BAR
 // ********************************
 
 	// CLICK SIDEBAR
 	$("#btn-sidebar").click(function() {
-		$("#sidebar").toggle("slide");
+		$("#sidebar").animate({right: "0px"});
 		$("#sideout").show();
 	});
 
 	$("#sideout").click(function() {
 		$("#sideout").hide();
-		$("#sidebar").toggle("slide");
+		$("#sidebar").animate({right: "-300px"});
 	})
 
 
@@ -34,6 +34,7 @@ $(document).ready(function() {
 		var Genero = $(this).text();
 		$('.fake-select').removeClass('open');
 		$('.selecione-cat').removeClass('active').text(Genero);
+		$('#genero-historia').val(Genero);
 		$('.radios').css({display: 'block'}).stop().animate({opacity: 1});
 	});
 	
@@ -48,6 +49,14 @@ $(document).ready(function() {
 		$(this).prev().addClass('selected');
 		$('.b-criar').addClass('ready')
 	});
+
+	// Submit form
+	$("#btncriar").click(function() {
+		$("#criar-form").submit();
+
+		return false;
+	});
+
 
 
 });

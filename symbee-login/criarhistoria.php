@@ -81,7 +81,7 @@
 
       <ul>
         <li class="itens-menu"><a href="#"> Visualizar Perfil </a></li>
-        <li class="itens-menu"><a href="#"> Criar História </a></li>
+        <li class="itens-menu"><a href="criarhistoria.php"> Criar História </a></li>
         <li class="itens-menu"><a href="#"> Ler História </a></li>
         <li class="itens-menu sair"><a href="deletecookie.php"> Sair </a></li>
       </ul>
@@ -95,8 +95,8 @@
     <p class="subtitulo"> Preencha as informações abaixo e começe a desenvolver a sua história </p>
 
     <div class="box-criar-historia">
-      <form action="#" method="get" id="criar-form">
-        <input type="text" id="name-historia" placeholder="Insira o nome da história..." />
+      <form action="historia-criada.php" method="post" id="criar-form">
+        <input type="text" id="name-historia" name="name-historia" placeholder="Insira o nome da história..." />
         <p class="desc-input">O nome da história poderá ser mudado ao decorrer da história</p>
 
         <a class="selecione-cat">Selecione o gênero*</a>
@@ -109,6 +109,7 @@
           <li>Romance</li>
           <li>Terror</li>
         </ul>
+        <input type="hidden" id="genero-historia" name="genero-historia" />
 
         <div class="radios">
           <h3 class="jogadores-titulo">Escolha o número de jogadores</h3>
@@ -119,7 +120,7 @@
           <label for="3-jogadores">3 jogadores</label>
           <input type="radio" name="num-jogadores" id="3-jogadores" class="ultimo" value="3 jogadores" />
         </div>
-        <a class="btn-criar">Criar</a>
+        <a class="btn-criar" id="btncriar" href="#">Criar</a>
       </form>
     </div>
   </div>
