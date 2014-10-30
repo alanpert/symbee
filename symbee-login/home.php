@@ -133,6 +133,8 @@
 
   <!-- MINHAS HISTORIAS -->
   <div class="minhashistorias">
+
+  
   <?php
     // TRAZENDO AS NARRATIVAS RELACIONADAS COM O USUARIO
     try {
@@ -141,24 +143,62 @@
      
       $result = $stmt->fetchAll();
      
-      if ( count($result) ) { 
+      $numHistorias = count($result);
+      echo("<script>console.log('PHP Total Historias: ".$numHistorias."');</script>"); 
+
+
+      if ( $numHistorias > 0 ) {
+        $historiasrestantes = 0;
+        $conthistorias = 0;
+      
         foreach($result as $row) {
+          if ($conthistorias < 3) {
           //print_r($row);
-          $narrativanome = $row[nome];
-          //echo $narrativanome;
-          echo ("<div class='historia-thumb'>");
-          echo ("<a href='#' class='historia-link'>");
-          echo ("<p>".$narrativanome."</p>");
-          echo ("</a>");
-          echo ("</div>");
-        }   
-      } else {
-        echo "No rows returned.";
+            $narrativanome = $row[nome];
+            $narrativagenero = $row[tema];
+            //echo $narrativanome;
+            echo ("<div class='historia-thumb'>");
+            echo ("<a href='#' class='historia-link'>");
+            echo ("<p>".$narrativanome."</p>");
+            echo ("<p>".$narrativagenero."</p>");
+            echo ("</a>");
+            echo ("</div>");
+            $conthistorias++;
+            //echo("<script>console.log('PHP Cont Historias: ".$conthistorias."');</script>"); 
+
+          } else {
+            echo ("<p> Mais... </p>");
+          }
+           
+        }  
+
+        if ($conthistorias < 3) {
+          $historiasrestantes = 3 - $conthistorias;
+          echo("<script>console.log('PHP Historias restantes: ".$historiasrestantes."');</script>"); 
+
+          for ($i=0; $i<$historiasrestantes; $i++) {
+            echo ("<div class='historia-thumb'>");
+            echo ("<a href='#' class='historia-link'>");
+            echo ("<p> Clique para adicionar uma história. </p>");
+            echo ("</a>");
+            echo ("</div>");
+          }
+        }
+
       }
+      else {
+        echo ("<p> Você atualmente não está participando de nenhuma história. Clique e crie uma! </p>");
+      }
+
+    
+
+
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
     }
   ?>
+
+
   </div>
   <!-- /MINHAS HISTORIAS -->
 

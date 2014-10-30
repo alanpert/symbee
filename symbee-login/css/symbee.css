@@ -198,14 +198,14 @@ input {
 .minibar .sidebar ul .itens-menu a {
 	color: #ffffff;
 	text-decoration: none;
-	padding: 20px 0px 20px 60px;
+	padding: 25px 0px 25px 60px;
 	display: block;
 	font-size: 17px;
 	margin-bottom: 1px;
 }
 
 	.minibar .sidebar ul .sair {
-		background: url(../img/sair-icon.png) 26px 17px no-repeat #252525;
+		background: url(../img/sair-icon.png) 26px 22px no-repeat #252525;
 	}
 	.minibar .sidebar ul .sair a {
 		color: #a3a3a3;
@@ -213,7 +213,7 @@ input {
 	
 .minibar .sidebar .logo-legenda {
 	display: block;
-	margin: 130px auto 0px;
+	margin: 110px auto 0px;
 }
 
 .minibar .sideout {
@@ -239,6 +239,7 @@ input {
 .home .minhashistorias {
 	clear: both;
 	display: table;
+	margin: 0 auto;
 }
 
 .home .minhashistorias .historia-thumb {
@@ -246,6 +247,10 @@ input {
 	height: 150px;
 	display: inline-block;
 	float: left;
+	margin-right: 40px;
+}
+.home .minhashistorias .historia-thumb:last-child {
+	margin-right: 0px;
 }
 
 .home .minhashistorias .historia-thumb .historia-link {
@@ -262,7 +267,7 @@ input {
 }
 
 .nova-historia .titulo {
-	margin-top: 50px;
+	margin-top: 30px;
 	text-align: center;
 	font-size: 40px;
 }
@@ -276,6 +281,7 @@ input {
 .nova-historia .criar-wrap {
 	overflow: hidden;
 	background: #efe7db;
+	height: 100%;
 }
 
 .nova-historia .criar-wrap .box-criar-historia {
@@ -293,8 +299,8 @@ input {
 	-moz-box-shadow: 0 0 3px -1px #000;
 	-ms-box-shadow: 0 0 3px -1px #000;
 	-o-box-shadow: 0 0 3px -1px #000;
-	margin: 70px auto 50px;
-	padding: 35px;
+	margin: 30px auto 50px;
+	padding: 25px;
 	width: 500px;
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -329,7 +335,7 @@ input {
 	cursor: pointer;
 	display: block;
 	height: 60px;
-	margin-top: 30px;
+	margin-top: 20px;
 	padding-left: 20px;
 	padding-top: 17px;
 	transition: all .2s cubic-bezier(0.175,0.885,0.32,3);

@@ -7,9 +7,38 @@
   $generohistoria = $_POST["genero-historia"];
   $numjogadores = $_POST["num-jogadores"];
 
+  $nivelcomeco = 1;
+
   if($nomehistoria == "") {
     echo("<script>window.location = 'http://symbee.com.br/symbee-login/criarhistoria.php';</script>");
   }
+
+  $sql = "INSERT INTO tblNarrativas(
+                                  criador,
+                                  nome,
+                                  tema,
+                                  numPart,
+                                  nivelcomeco
+                                  ) VALUES (
+                                  :criador, 
+                                  :nome, 
+                                  :tema,
+                                  :numPart,
+                                  :nivelcomeco)";
+                                          
+  $stmt = $connection->prepare($sql);
+                                                
+  $stmt->bindParam(':criador', $cookieemail, PDO::PARAM_STR);       
+  $stmt->bindParam(':nome', $nomehistoria, PDO::PARAM_STR); 
+  $stmt->bindParam(':tema', $generohistoria, PDO::PARAM_STR);
+  $stmt->bindParam(':numPart', $numjogadores, PDO::PARAM_STR);
+  $stmt->bindParam(':nivelcomeco', $nivelcomeco, PDO::PARAM_STR);
+                                    
+  $stmt->execute();
+
+  // ADICIONAR RELAÇÃO NA TABELA "tblHistoriaPessoa" DE ID NARRATIVA E EMAIL DE QUEM ESTIVER LOGADO
+  // $idhistoria = $connection->lastInsertId('id');
+  // include('php/relacao-historia-usuario.php');
 
 ?>
 
@@ -59,6 +88,7 @@
   <p> Numero de jogadores: <?php echo ($numjogadores); ?> </p>
   <br/ >
   <p> Criado por: <?php echo ($varnome); ?> </p>
+
 
 
 </div>
