@@ -52,6 +52,7 @@
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="js/symbee-geral.js"></script>
   <link rel="stylesheet" type="text/css" href="css/symbee.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -83,6 +84,28 @@
       <img src="img/symbee-logo-legenda.png" width="200" height="76" alt="Symbee - Narrativas Colaborativas" class="logo-legenda" />
     </div>
   </div>
+
+  <div class="banner" style="background: url(img/placeholder/placeholder-img-capa.jpg) no-repeat center;">
+    <div class="dados">
+      <h2> <?php echo ($nomehistoria); ?> </h2>
+      <p> <?php echo ($generohistoria); ?> </p>
+    </div>
+  </div>
+
+  <div class="infos">
+    <div class="btn-config">
+      <a href="#">
+        <p> Configurações da História </p>
+      </a>
+    </div>
+    <div>
+      <p> Rodada: <span>1</span> </p>
+    </div>
+
+  </div>
+
+
+
   <p> Nome da História: <?php echo ($nomehistoria); ?></p>
   <p> Gênero: <?php echo ($generohistoria); ?> </p>
   <p> Numero de jogadores: <?php echo ($numjogadores); ?> </p>

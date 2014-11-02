@@ -17,6 +17,16 @@ $(document).ready(function() {
 
 
 // ********************************
+// HOME
+// ********************************
+
+	// Click em Nova História dentro de Minhas Histórias
+	$(".click-nova").click(function() {
+		window.location = "criarhistoria.php";
+	});
+
+
+// ********************************
 // CRIAR HISTÓRIA
 // ********************************
 	$('.selecione-cat').click(function() {

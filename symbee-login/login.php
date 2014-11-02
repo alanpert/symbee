@@ -13,6 +13,7 @@
 
   <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
   <link rel="stylesheet" type="text/css" href="css/symbee.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body>

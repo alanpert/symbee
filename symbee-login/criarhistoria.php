@@ -58,6 +58,7 @@
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="js/symbee-geral.js"></script>
   <link rel="stylesheet" type="text/css" href="css/symbee.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
