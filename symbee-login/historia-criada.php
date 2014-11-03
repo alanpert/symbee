@@ -9,6 +9,37 @@
 
   $nivelcomeco = 1;
 
+
+  // Definindo o Mini Icone de Gênero
+  $urlminiicon = "";
+  switch ($generohistoria) {
+    case "Ação e Aventura":
+      $urlminiicon = "img\icon-genero\icon-mini-acao.png";
+      break;
+
+    case "Comédia":
+      $urlminiicon = "img\icon-genero\icon-mini-comedia.png";
+      break;
+
+    case "Fantasia":
+      $urlminiicon = "img\icon-genero\icon-mini-fantasia.png";
+      break;
+
+    case "Ficção Científica":
+      $urlminiicon = "img\icon-genero\icon-mini-ficcao.png";
+      break;
+
+    case "Romance":
+      $urlminiicon = "img\icon-genero\icon-mini-romance.png";
+      break;
+
+    case "Terror":
+      $urlminiicon = "img\icon-genero\icon-mini-terror.png";
+      break;
+  }
+
+
+  // Redirect Caso não Tenha nome de História - Apenas para impedir o acesso direto a essa URL
   if($nomehistoria == "") {
     echo("<script>window.location = 'http://symbee.com.br/symbee-login/criarhistoria.php';</script>");
   }
@@ -59,32 +90,10 @@
 
 <div class="mobile-wrap historia-criada">
 
-  <div class="minibar">
-    <a href="home.php" class="minibar-logo"> <img src="img/minibar-logo.png" width="140" height="53" alt="Symbee" /> </a>
-    <a href="#" class="btn-sidebar img-replace" id="btn-sidebar"> SideBar </a>
+  <!-- TOP MENU + SIDE MENU -->
+  <?php include('php/topmenu.php'); ?>
 
-    <div class="sideout" id="sideout">
-    </div>
-    <div class="sidebar" id="sidebar">
-      <div class="foto" style="background: url('<?php echo ($varurlfoto); ?>') center no-repeat">
-          <div class="foto-mask"></div>
-      </div>
-      <p class="nome"> <?php echo ($varnome); ?> </p>
-      <p class="email"> <?php echo ($varemail); ?> </p>
-
-      <span class="separador"></span>
-
-      <ul>
-        <li class="itens-menu"><a href="#"> Visualizar Perfil </a></li>
-        <li class="itens-menu"><a href="criarhistoria.php"> Criar História </a></li>
-        <li class="itens-menu"><a href="#"> Ler História </a></li>
-        <li class="itens-menu sair"><a href="deletecookie.php"> Sair </a></li>
-      </ul>
-
-      <img src="img/symbee-logo-legenda.png" width="200" height="76" alt="Symbee - Narrativas Colaborativas" class="logo-legenda" />
-    </div>
-  </div>
-
+  <!-- CONTEUDO -->
   <div class="banner" style="background: url(img/placeholder/placeholder-img-capa.jpg) no-repeat center;">
     <div class="dados">
       <h2> <?php echo ($nomehistoria); ?> </h2>
@@ -94,24 +103,47 @@
 
   <div class="infos">
     <div class="btn-config">
-      <a href="#">
+      <a href="#" class="action-config">
         <p> Configurações da História </p>
       </a>
+      <ul class="dropdown" id="drop-config-hist">
+        <li><a href="#">Editar Nome</a></li>
+        <li><a href="#">Convidar Amigos</a></li>
+        <li><a href="#">Editar Capa</a></li>
+        <li><a href="#">Voltar</a></li>
+      </ul>
     </div>
-    <div>
+    <div class="info-rodada">
       <p> Rodada: <span>1</span> </p>
+      <img src="<?php echo ($urlminiicon); ?>" width="80" height="75" alt="<?php echo ($generohistoria); ?>" class="mini-icon-genero">
     </div>
 
   </div>
 
+  <div class="introducao">
+    <p class="base">
+      Quisque ac lorem neque. Nulla id neque dolor. Cras dignissim, libero sit amet malesuada posuere, ipsum enim aliquam ligula, a vehicula orci erat tristique nulla. Suspendisse ipsum sapien dolor sir consectetur. vestibulum volutpat. Donec nec lectus laoreet, malesuada sapien eget, varius ipsum. Fusce sit amet justo ut tellus mollis tempus nec quis nisi. Pellentesque pharetra enim ut porta luctus
+    </p>
+
+    <p class="regras">
+      Dê continuidade ao texto acima para criar sua introdução. 
+      <br/>
+      Máximo: <span>500 caracteres.</span>  Mínimo: <span>150 caracteres</span>
+    </p>
+
+    <textarea placeholder="Adicione o texto..." maxlength="500"></textarea>
+
+    <a class="btn-salvar">Salvar</a>
+  </div>
 
 
-  <p> Nome da História: <?php echo ($nomehistoria); ?></p>
-  <p> Gênero: <?php echo ($generohistoria); ?> </p>
-  <p> Numero de jogadores: <?php echo ($numjogadores); ?> </p>
-  <br/ >
-  <p> Criado por: <?php echo ($varnome); ?> </p>
-
+  <div class="info-hide">
+    <p> Nome da História: <?php echo ($nomehistoria); ?></p>
+    <p> Gênero: <?php echo ($generohistoria); ?> </p>
+    <p> Numero de jogadores: <?php echo ($numjogadores); ?> </p>
+    <br/ >
+    <p> Criado por: <?php echo ($varnome); ?> </p>
+  <div>
 
 
 </div>

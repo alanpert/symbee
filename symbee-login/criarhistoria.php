@@ -40,7 +40,7 @@
     if ($session) {
       echo("<script>window.location.reload(true);</script>");
     } else {
-      echo("<script>window.location = 'http://symbee.com.br/symbee-login/index2.php';</script>");
+      echo("<script>window.location = 'http://symbee.com.br/symbee-login/index.php';</script>");
     }
   }
 
@@ -65,32 +65,10 @@
 
 <div class="mobile-wrap nova-historia">
 
-  <div class="minibar">
-    <a href="home.php" class="minibar-logo"> <img src="img/minibar-logo.png" width="140" height="53" alt="Symbee" /> </a>
-    <a href="#" class="btn-sidebar img-replace" id="btn-sidebar"> SideBar </a>
+  <!-- TOP MENU + SIDE MENU -->
+  <?php include('php/topmenu.php'); ?>
 
-    <div class="sideout" id="sideout">
-    </div>
-    <div class="sidebar" id="sidebar">
-      <div class="foto" style="background: url('<?php echo ($varurlfoto); ?>') center no-repeat">
-          <div class="foto-mask"></div>
-      </div>
-      <p class="nome"> <?php echo ($varnome); ?> </p>
-      <p class="email"> <?php echo ($varemail); ?> </p>
-
-      <span class="separador"></span>
-
-      <ul>
-        <li class="itens-menu"><a href="#"> Visualizar Perfil </a></li>
-        <li class="itens-menu"><a href="criarhistoria.php"> Criar História </a></li>
-        <li class="itens-menu"><a href="#"> Ler História </a></li>
-        <li class="itens-menu sair"><a href="deletecookie.php"> Sair </a></li>
-      </ul>
-
-      <img src="img/symbee-logo-legenda.png" width="200" height="76" alt="Symbee - Narrativas Colaborativas" class="logo-legenda" />
-    </div>
-  </div>
-
+  <!-- CONTEUDO -->
   <div class="criar-wrap">
     <h1 class="titulo"> Criar nova história </h1>
     <p class="subtitulo"> Preencha as informações abaixo e começe a desenvolver a sua história </p>

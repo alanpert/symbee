@@ -3,5 +3,5 @@
 	setcookie("user", "", time()-3600	);
 	
 	//redirect back to index page
-	header("Location: index2.php");
+	header("Location: index.php");
 ?>

@@ -67,6 +67,14 @@ $(document).ready(function() {
 		return false;
 	});
 
+// ********************************
+// HISTÓRIA INTRODUÇÃO
+// ********************************
 
+	// Menu Config
+	$(".btn-config .action-config").click(function() {
+		$("#drop-config-hist").slideToggle("fast");
+		return false;
+	});
 
 });
