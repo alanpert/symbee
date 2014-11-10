@@ -297,6 +297,11 @@ input:focus, textarea:focus {
 	cursor: pointer;
 }
 
+.home .minhashistorias .historia-andamento .historiaclick {
+	display: block;
+	text-decoration: none;
+}
+
 .home .minhashistorias .historia-andamento .historia-thumb {
 	width: 150px;
 	height: 150px;
@@ -373,7 +378,7 @@ input:focus, textarea:focus {
 .home .call-criar a {
 	background-color: #f39f35;
 	display: inline-block;
-	margin: 24px 0px 0px 20px;
+	margin: 24px 0px 0px 15px;
 	padding: 14px 49px;
 	text-decoration: none;
 	cursor: pointer;

@@ -26,6 +26,21 @@ $(document).ready(function() {
 	});
 
 
+	//Click História Criada
+	// $(".historia-andamento").click(function() {
+	// 	//console.log(1);
+	// 	var titulohistoriaclick = $(this).children(".historia-infos").children(".titulo").html();
+	// 	var generohistoriaclick = $(this).children(".historia-infos").children(".genero").html();
+	// 	var criadorhistoriaclick = $(this).children(".historia-infos").children(".criador").html();
+
+	// 	var urlhistoriaclick = "http://www.symbee.com.br/symbee-login/historia-visualizacao.php?titulo=" + titulohistoriaclick + "&genero=" + generohistoriaclick + "&criador=" + criadorhistoriaclick;
+		
+	// 	window.location.href = urlhistoriaclick;
+	// 	//console.log(urlhistoriaclick);
+	// });
+
+
+
 // ********************************
 // CRIAR HISTÓRIA
 // ********************************

@@ -133,11 +133,13 @@
         
           foreach($result as $row) {
             if ($conthistorias < 3) {
-            //print_r($row);
+              //print_r($row);
+              $narrativacriador = $row[criador];
               $narrativanome = $row[nome];
               $narrativagenero = $row[tema];
               //echo $narrativanome;
               echo ("<div class='historia-andamento'>");
+              echo ("<a href='historia-visualizacao.php?nome=" . $narrativanome . "&genero=" . $narrativagenero . "&criador=" . $narrativacriador . "' class='historiaclick'>");
                 echo ("<div class='historia-thumb' style='background: url(img/placeholder/historia-thumb.jpg) no-repeat center' >");
                   echo ("<div class='mask'>");
                   echo ("</div>");
@@ -145,7 +147,9 @@
                 echo ("<div class='historia-infos'>");
                   echo ("<p class='titulo'>".$narrativanome."</p>");
                   echo ("<p class='genero'>".$narrativagenero."</p>");
+                  echo ("<p class='criador' style='display: none;'>".$narrativacriador."</p>");
                 echo ("</div>");
+              echo ("</a>");
               echo ("</div>");
               $conthistorias++;
               //echo("<script>console.log('PHP Cont Historias: ".$conthistorias."');</script>"); 
