@@ -281,6 +281,14 @@ input:focus, textarea:focus {
 	margin: 0px auto 10px;
 }
 
+.home .minhashistorias .line-wrap .nao-participando {
+	text-align: center;
+}
+
+.home .minhashistorias .line-wrap .nao-participando a {
+	color: #f39f35;
+}
+
 .home .minhashistorias .historia-andamento {
 	width: 150px;
 	display: block;

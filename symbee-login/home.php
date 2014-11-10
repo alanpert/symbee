@@ -178,7 +178,7 @@
 
         }
         else {
-          echo ("<p> Você atualmente não está participando de nenhuma história. Clique e crie uma! </p>");
+          echo ("<p class='nao-participando'> Você atualmente não está participando de nenhuma história. <br/><br/> <a href='#'>Clique e crie uma!</a> </p>");
         }
 
       

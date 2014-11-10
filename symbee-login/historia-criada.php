@@ -71,6 +71,33 @@
   // $idhistoria = $connection->lastInsertId('id');
   // include('php/relacao-historia-usuario.php');
 
+
+  // Trazendo trecho Intro
+  //echo("<script>console.log('PHP Trecho Intro: ".$generohistoria."');</script>"); 
+  try {
+        $stmt = $connection->prepare('SELECT * FROM tblIntros WHERE tema = :generohistoria');
+        $stmt->execute(array('generohistoria' => $generohistoria));
+       
+        $result = $stmt->fetchAll();
+        if ( count($result) ) { 
+          foreach($result as $row) {
+            $trechointro = $row[intro];
+          }   
+        } else {
+          //echo "No rows returned.";
+          echo("<script>console.log('PHP Trecho Intro: No Rows Returned.');</script>");
+        }
+       
+        
+        
+
+      
+
+
+      } catch(PDOException $e) {
+          echo 'ERROR: ' . $e->getMessage();
+      }
+
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +149,7 @@
 
   <div class="introducao">
     <p class="base">
-      Quisque ac lorem neque. Nulla id neque dolor. Cras dignissim, libero sit amet malesuada posuere, ipsum enim aliquam ligula, a vehicula orci erat tristique nulla. Suspendisse ipsum sapien dolor sir consectetur. vestibulum volutpat. Donec nec lectus laoreet, malesuada sapien eget, varius ipsum. Fusce sit amet justo ut tellus mollis tempus nec quis nisi. Pellentesque pharetra enim ut porta luctus
+      <?php echo ($trechointro); ?>
     </p>
 
     <p class="regras">
