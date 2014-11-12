@@ -7,11 +7,20 @@
   $actual_link = basename($_SERVER['REQUEST_URI']);
   //echo ($actual_link);
   // $url = 'https://mysite.com/test/1234?basic=2&email=xyz2@test.com';
+  $visualizacao = 0;
+
   $parts = parse_url($actual_link);
   parse_str($parts['query'], $query);
-  $titulohistoriaclick = $query['nome'];
-  $generohistoriaclick = $query['genero'];
-  $criadorhistoriaclick = $query['criador'];
+  if ($titulohistoriaclick) {
+    $visualizacao = 1;
+    $titulohistoriaclick = $query['nome'];
+    $generohistoriaclick = $query['genero'];
+    $criadorhistoriaclick = $query['criador'];
+  }
+  else {
+    echo ("1");
+  }
+  
   //echo $query['nome'];
   //echo $query['genero'];
   //echo $query['criador'];
