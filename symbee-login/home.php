@@ -134,12 +134,13 @@
           foreach($result as $row) {
             if ($conthistorias < 3) {
               //print_r($row);
+              $idnarrativa = $row[id];
               $narrativacriador = $row[criador];
               $narrativanome = $row[nome];
               $narrativagenero = $row[tema];
               //echo $narrativanome;
               echo ("<div class='historia-andamento'>");
-              echo ("<a href='historia-visualizacao.php?nome=" . $narrativanome . "&genero=" . $narrativagenero . "&criador=" . $narrativacriador . "' class='historiaclick'>");
+              echo ("<a href='historia-visualizacao.php?nome=" . $narrativanome . "&genero=" . $narrativagenero . "&criador=" . $narrativacriador . "&narrativa=" . $idnarrativa . "' class='historiaclick'>");
                 echo ("<div class='historia-thumb' style='background: url(img/placeholder/historia-thumb.jpg) no-repeat center' >");
                   echo ("<div class='mask'>");
                   echo ("</div>");
@@ -182,7 +183,7 @@
 
         }
         else {
-          echo ("<p class='nao-participando'> Você atualmente não está participando de nenhuma história. <br/><br/> <a href='#'>Clique e crie uma!</a> </p>");
+          echo ("<p class='nao-participando'> Você atualmente não está participando de nenhuma história. <br/><br/> <a href='criarhistoria.php'>Clique e crie uma!</a> </p>");
         }
 
       
@@ -212,7 +213,44 @@
 
   <!-- HISTÓRIAS MAIS VOTADAS -->
   <div class="mais-votadas">
-      <h1> LEIA AS HISTÓRIAS MAIS VOTADAS </h1>
+    <h1> LEIA AS HISTÓRIAS MAIS VOTADAS </h1>
+
+    <div class="historia-lista">
+      <div class="img-lista">
+          <img src="img/placeholder/historia-rank1.png" width="85" height="75"/>
+      </div>
+      <div class="infos">
+        <h3>O cavaleiro Honrado</h3>
+        <p> <strong>Gênero:</strong> Ação e Aventura </p>
+        <p> <strong> Criador: </strong> CaahZin </p>
+        <a href="#" class="btn-ler-historia">Ler História </a>
+      </div>
+    </div>
+
+    <div class="historia-lista">
+      <div class="img-lista">
+          <img src="img/placeholder/historia-rank2.png" width="85" height="75"/>
+      </div>
+      <div class="infos">
+        <h3>A última corrida</h3>
+        <p> <strong>Gênero:</strong> Ação e Aventura </p>
+        <p> <strong> Criador: </strong> Raphael Lucena </p>
+        <a href="#" class="btn-ler-historia">Ler História </a>
+      </div>
+    </div>
+
+    <div class="historia-lista">
+      <div class="img-lista">
+          <img src="img/placeholder/historia-rank3.png" width="85" height="75"/>
+      </div>
+      <div class="infos">
+        <h3>Dragões Valentes II: O coração de fogo.</h3>
+        <p> <strong>Gênero:</strong> Ação e Aventura </p>
+        <p> <strong> Criador: </strong> Daniel Laham </p>
+        <a href="#" class="btn-ler-historia">Ler História </a>
+      </div>
+    </div>
+
   </div>
   <!-- /HISTÓRIAS MAIS VOTADAS -->
 

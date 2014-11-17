@@ -68,8 +68,8 @@
   $stmt->execute();
 
   // ADICIONAR RELAÇÃO NA TABELA "tblHistoriaPessoa" DE ID NARRATIVA E EMAIL DE QUEM ESTIVER LOGADO
-  // $idhistoria = $connection->lastInsertId('id');
-  // include('php/relacao-historia-usuario.php');
+  $idhistoria = $connection->lastInsertId('id');
+  include('php/relacao-historia-usuario.php');
 
 
   // Trazendo trecho Intro
@@ -148,19 +148,25 @@
   </div>
 
   <div class="introducao">
-    <p class="base">
-      <?php echo ($trechointro); ?>
-    </p>
+    <form action="php/post-intro.php" method="post" id="form-intro">
+      <p class="base">
+        <?php echo ($trechointro); ?>
+      </p>
 
-    <p class="regras">
-      Dê continuidade ao texto acima para criar sua introdução. 
-      <br/>
-      Máximo: <span>500 caracteres.</span>  Mínimo: <span>150 caracteres</span>
-    </p>
+      <p class="regras">
+        Dê continuidade ao texto acima para criar sua introdução. 
+        <br/>
+        Máximo: <span>500 caracteres.</span>  Mínimo: <span class="min-carac">150 caracteres</span>
+      </p>
+      
+      <textarea placeholder="Adicione o texto..." maxlength="500" id="addintro" name="addintro"></textarea>
+      <input type="hidden" id="idhistoria" name="idhistoria" value="<?php echo $idhistoria?>"/>
+      <input type="hidden" id="nomehistoria" name="nomehistoria" value="<?php echo $nomehistoria?>"/>
+      <input type="hidden" id="generohistoria" name="generohistoria" value="<?php echo $generohistoria?>"/>
+      <a class="btn-salvar" href="#">Salvar</a>
 
-    <textarea placeholder="Adicione o texto..." maxlength="500"></textarea>
-
-    <a class="btn-salvar">Salvar</a>
+      <p class="contador-caracteres">0</p>
+    </form>
   </div>
 
 

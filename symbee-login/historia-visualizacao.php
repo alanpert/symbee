@@ -11,19 +11,66 @@
 
   $parts = parse_url($actual_link);
   parse_str($parts['query'], $query);
+  $titulohistoriaclick = $query['nome'];
   if ($titulohistoriaclick) {
     $visualizacao = 1;
-    $titulohistoriaclick = $query['nome'];
     $generohistoriaclick = $query['genero'];
     $criadorhistoriaclick = $query['criador'];
+    $idnarrativa = $query['narrativa'];
   }
   else {
-    echo ("1");
+    echo("<script>window.location = 'criarhistoria.php';</script>");
   }
   
+
+  // VARIAVEIS PARA CONFIG HISTORIA
+  $nomehistoria = $titulohistoriaclick;
+  $generohistoria = $generohistoriaclick;
+
+  $urlminiicon = "";
+  switch ($generohistoria) {
+    case "Ação e Aventura":
+      $urlminiicon = "img\icon-genero\icon-mini-acao.png";
+      break;
+
+    case "Comédia":
+      $urlminiicon = "img\icon-genero\icon-mini-comedia.png";
+      break;
+
+    case "Fantasia":
+      $urlminiicon = "img\icon-genero\icon-mini-fantasia.png";
+      break;
+
+    case "Ficção Científica":
+      $urlminiicon = "img\icon-genero\icon-mini-ficcao.png";
+      break;
+
+    case "Romance":
+      $urlminiicon = "img\icon-genero\icon-mini-romance.png";
+      break;
+
+    case "Terror":
+      $urlminiicon = "img\icon-genero\icon-mini-terror.png";
+      break;
+  }
   //echo $query['nome'];
   //echo $query['genero'];
   //echo $query['criador'];
+  //echo $query['narrativa'];
+
+   try {
+        $stmt = $connection->prepare('SELECT * FROM tblTrechos WHERE idnarrativa = :idnarrativa ORDER BY indice');
+        $stmt->execute(array('idnarrativa' => $idnarrativa));
+         
+        $result = $stmt->fetchAll();
+
+        $numrodada = count($result);
+        // echo ($numrodada);
+
+      } catch(PDOException $e) {
+          echo 'ERROR: ' . $e->getMessage();
+      }
+
 
 ?>
 
@@ -48,10 +95,34 @@
   <?php include('php/topmenu.php'); ?>
 
   <!-- CONTEUDO -->
+  <?php include('infos-historia-config.php'); ?>
   <div>
-    <p> Nome História: <?php echo ($titulohistoriaclick); ?></p>
-    <p> Gênero História: <?php echo ($generohistoriaclick); ?> </p>
+    <!-- <p> Nome História: <?php //echo ($titulohistoriaclick); ?></p> -->
+    <!-- <p> Gênero História: <?php //echo ($generohistoriaclick); ?> </p> -->
     <p> Criador: <?php echo ($criadorhistoriaclick); ?></p>
+  </div>
+
+  <div>
+    <?php
+      //Trechos da história
+     
+      if ( count($result) ) { 
+        foreach($result as $row) {
+          //print_r($row);
+          echo ("<p> Trecho: " . $row[indice] . "</p>");
+          echo ("<p> " . $row[texto] . " </p>");
+          echo ("<br/>");
+          //$trechointro = $row[intro];
+        }   
+
+
+      } else {
+        //echo "No rows returned.";
+        echo("<script>console.log('PHP Trecho Intro: No Rows Returned.');</script>");
+      }
+
+
+    ?>
   </div>
 
 </div>

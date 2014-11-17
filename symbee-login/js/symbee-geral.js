@@ -83,13 +83,40 @@ $(document).ready(function() {
 	});
 
 // ********************************
-// HISTÓRIA INTRODUÇÃO
+// HISTÓRIA INTRODUÇÃO - historia-criada.php
 // ********************************
 
 	// Menu Config
 	$(".btn-config .action-config").click(function() {
 		$("#drop-config-hist").slideToggle("fast");
 		return false;
+	});
+
+	$(".btn-salvar").click(function() {
+		var textointro = $("#addintro").val();
+		var textotamanho = textointro.length;
+		if (textotamanho < 150) {
+			$("#addintro").addClass("error");
+			$("#addintro").focus();
+			$(".min-carac").addClass("error");
+		}
+		else {
+			$("#form-intro").submit();
+		}
+		return false;
+		
+	});
+
+	$("#addintro").blur(function() {
+		$(this).removeClass("error");
+		$(".min-carac").removeClass("error");
+	});
+
+	$("#addintro").keyup(function() {
+		textotamanho = $("#addintro").val().length;
+		$(".contador-caracteres").html(textotamanho);
+		$(this).removeClass("error");
+		$(".min-carac").removeClass("error");
 	});
 
 });

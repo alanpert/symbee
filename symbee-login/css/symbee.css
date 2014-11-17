@@ -400,6 +400,50 @@ input:focus, textarea:focus {
 	text-align: center;
 }
 
+.home .mais-votadas .historia-lista {
+	position: relative;
+	display: table;
+	clear: both;
+	width: 100%;
+	margin-top: 40px;
+}
+
+.home .mais-votadas .historia-lista .img-lista {
+	display: inline-block;
+	float: left;
+	margin: 0px 10px 0px -24px;
+} 
+
+.home .mais-votadas .historia-lista .img-lista .mask {
+
+}
+
+.home .mais-votadas .historia-lista .infos {
+	display: inline-block;
+	float: left;
+}
+
+.home .mais-votadas .historia-lista .infos h3 {
+	font-size: 18px;
+	color: #f39f35;
+	width: 290px;
+	margin-bottom: 5px;
+}
+
+.home .mais-votadas .historia-lista .infos .btn-ler-historia {
+	background-color: #f39f35;
+	display: inline-block;
+	padding: 14px 49px;
+	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	-webkit-border-radius: 7px;
+	position: absolute;
+	bottom: 14px;
+	right: 0px;
+}
+
 /* ----------------------------- */
 /* NOVA HISTÓRIA */
 /* ----------------------------- */
@@ -713,6 +757,7 @@ input:focus, textarea:focus {
 /* Intro História */
 .historia-criada .introducao {
 	padding: 0px 50px;
+	position: relative;
 }
 
 .historia-criada .introducao .base {
@@ -734,6 +779,12 @@ input:focus, textarea:focus {
 	color: #f39f35;
 }
 
+.historia-criada .introducao .regras .min-carac.error {
+	color: #f33535;
+	font-size: 16px;
+	font-weight: bold;
+}
+
 .historia-criada .introducao textarea {
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -750,6 +801,10 @@ input:focus, textarea:focus {
 	width: 540px;
 }
 
+.historia-criada .introducao textarea.error {
+	border-color: #f33535;
+}
+
 .historia-criada .introducao .btn-salvar {
 	background-color: #f39f35;
 	display: block;
@@ -764,4 +819,13 @@ input:focus, textarea:focus {
 	-moz-border-radius: 7px;
 	-ms-border-radius: 7px;
 	-o-border-radius: 7px;	
+}
+
+.historia-criada .introducao .contador-caracteres {
+	position: absolute;
+	display: block;
+	bottom: 23px;
+	right: 51px;
+	color: #f39f35;
+	text-align: right;
 }
