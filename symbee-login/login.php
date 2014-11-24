@@ -25,13 +25,13 @@
 
     <div class="login-box">
       <h2>Bem-vindo, escritor!</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel bibendum dui, vel suscipit turpis. </p>
+      <p>Conecte-se com o facebook e começe a criar histórias incríveis! </p>
       <?php 
         $params = array(
           "scope" => "public_profile,email");
         echo '<a href="' . $helper->getLoginUrl($params) . '" class="btn-loginfb">Entrar com Facebook</a>'; 
       ?>
-      <a href="#" class="saiba-mais">Saiba mais sobre o aplicativo</a>
+      <p class="saiba-mais">Novo Aqui?<a href="como-funciona.html">Saiba mais sobre o aplicativo</a></p>
 
     </div>
   </div>

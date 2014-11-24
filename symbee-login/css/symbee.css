@@ -63,7 +63,6 @@ input:focus, textarea:focus {
 	display: none;
 }
 
-
 /* ----------------------------- */
 /* PÁGINA LOGIN */
 /* ----------------------------- */
@@ -99,11 +98,11 @@ input:focus, textarea:focus {
   margin: 130px auto 0px;
   padding: 35px;
   width: 350px;
-  height: 362px;
+  height: 312px;
 }
 
 .login .login-box h2 {
-	font-size: 25px;
+	font-size: 28px;
 	text-align: center;
 }
 
@@ -120,15 +119,19 @@ input:focus, textarea:focus {
 	display: block;
 	overflow: hidden;
 	text-indent: -999em;
-	margin: 55px auto 0;
+	margin: 45px auto 0;
 }
 
 .login .login-box .saiba-mais {
-	font-size: 16px;
-	color: #f39f35;
-	text-align: right;
+	font-size: 14px;
+	text-align: center;
 	display: block;
-	margin-top: 70px;
+	margin-top: 60px;
+}
+
+.login .login-box .saiba-mais a {
+	color: #f39f35;
+	margin-left: 10px;
 }
 
 
@@ -230,7 +233,7 @@ input:focus, textarea:focus {
 }
 
 	.minibar .sidebar ul .sair {
-		background: url(../img/sair-icon.png) 26px 22px no-repeat #252525;
+		/*background: url(../img/sair-icon.png) 26px 22px no-repeat #252525;*/
 	}
 	.minibar .sidebar ul .sair a {
 		color: #a3a3a3;
@@ -581,6 +584,7 @@ input:focus, textarea:focus {
 .nova-historia .criar-wrap .box-criar-historia .radios label {
 	cursor: pointer;
 	font-size: 15px;
+	margin-right: 25px;
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
 	-ms-transition: all .2s ease-in-out;
@@ -603,7 +607,7 @@ input:focus, textarea:focus {
 }
 
 .nova-historia .criar-wrap .box-criar-historia .radios input {
-	margin-right: 40px;
+	margin-right: 5px;
 }
 
 /* BTN CRIAR */
@@ -676,6 +680,7 @@ input:focus, textarea:focus {
 	background: #222222;
 	clear: both;
 	display: table;
+	position: relative;
 }
 
 /* BTN Config Hist */
@@ -726,6 +731,78 @@ input:focus, textarea:focus {
 	display: block;
 	padding: 18px 0px 18px 50px;
 	overflow: hidden;
+}
+
+.historia-criada .infos .box-convidar-amigos {
+	display: none;
+	position: absolute;
+	width: 538px;
+	z-index: 1;
+	background: #f0f0f0;
+	padding: 50px;
+	top: 80px;
+	left: 0px;
+	border: 1px solid #333;
+	-webkit-border-bottom-right-radius: 7px;
+	-webkit-border-bottom-left-radius: 7px;
+	-moz-border-radius-bottomright: 7px;
+	-moz-border-radius-bottomleft: 7px;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+.historia-criada .infos .box-convidar-amigos #email-convidado {
+	margin: 10px 0px 20px 0px;
+}
+
+.historia-criada .infos .box-convidar-amigos .btn-wrap, .historia-criada .infos .box-convidar-amigos-sucesso .btn-wrap {
+	display: table;
+	clear: both;
+	margin: 0 auto;
+}
+
+.historia-criada .infos .box-convidar-amigos .btn-wrap a, .historia-criada .infos .box-convidar-amigos-sucesso .btn-wrap a {
+	background-color: #f39f35;
+	display: inline-block;
+	padding: 14px 49px;
+	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	-webkit-border-radius: 7px;
+	float: left;
+}
+
+.historia-criada .infos .box-convidar-amigos .btn-wrap .btn-fechar-convidar {
+	margin-right: 100px;
+}
+
+.historia-criada .infos .box-convidar-amigos-sucesso {
+	display: none;
+	position: absolute;
+	width: 538px;
+	z-index: 1;
+	background: #f0f0f0;
+	padding: 50px;
+	top: 80px;
+	left: 0px;
+	border: 1px solid #333;
+	-webkit-border-bottom-right-radius: 7px;
+	-webkit-border-bottom-left-radius: 7px;
+	-moz-border-radius-bottomright: 7px;
+	-moz-border-radius-bottomleft: 7px;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+.historia-criada .infos .box-convidar-amigos-sucesso .texto-sucesso {
+	color: #f39f35;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.historia-criada .infos .box-convidar-amigos-sucesso #url-sucesso {
+	margin: 10px 0px 20px 0px;
 }
 
 
@@ -815,6 +892,7 @@ input:focus, textarea:focus {
 	cursor: pointer;
 	color: #fff;
 	border-radius: 7px;
+	text-decoration: none;
 	-webkit-border-radius: 7px;
 	-moz-border-radius: 7px;
 	-ms-border-radius: 7px;
@@ -828,4 +906,292 @@ input:focus, textarea:focus {
 	right: 51px;
 	color: #f39f35;
 	text-align: right;
+}
+
+
+/* História Visualização */
+.historia-criada  .contadapor {
+	background: url(../img/autor-icon.png) left center no-repeat;
+	padding-left: 30px;
+	font-size: 14px;
+	margin: 10px 0px 10px 20px;
+}
+
+.historia-criada .textointro {
+	text-align: center;
+	font-weight: 600;
+	color: #f39f35;
+	font-size: 14px;
+	padding: 20px 0px;
+	border-top: 1px dotted #f39f35;
+	border-bottom: 1px dotted #f39f35;
+	margin-bottom: 20px;
+}
+
+.historia-criada .trechohistoria {
+	margin-bottom: 20px;
+}
+
+.historia-criada .trechohistoria .textotrecho {
+	padding: 0 20px;
+}
+
+.historia-criada .trechohistoria .clickinfos {
+	font-size: 14px;
+	text-align: right;
+	margin-top: 10px;
+	padding-right: 20px;
+}
+
+.historia-criada .trechohistoria .clickinfos a {
+	color: #b2b2b2;
+	margin-right: 10px;
+}
+
+.historia-criada .trechohistoria .infos-cont {
+	width: 100%;
+	background: #e8e8e8;
+	padding: 10px 20px;
+	position: relative;
+	display: none;
+	clear: both;
+}
+
+.historia-criada .trechohistoria .infos-cont p {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.historia-criada .trechohistoria .infos-cont a {
+	margin-right: 50px;
+	font-size: 14px;
+}
+
+.historia-criada .trechohistoria .infos-cont .mask {
+	background: #000;
+	 display: none; 
+	height: 100%;
+	opacity: 0.7;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 999;
+}
+
+.historia-criada .trechohistoria .infos-cont .box-desafio {
+	display: none;
+	background: #fff;
+	width: 500px;
+	position: fixed;
+	top: 35%;
+	left: 35px;
+	padding: 30px;
+	z-index: 9999;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;
+	box-shadow: 0 0 3px -1px #000;
+	-webkit-box-shadow: 0 0 3px -1px #000;
+	-moz-box-shadow: 0 0 3px -1px #000;
+	-ms-box-shadow: 0 0 3px -1px #000;
+	-o-box-shadow: 0 0 3px -1px #000;
+}
+
+.historia-criada .trechohistoria .infos-cont .box-desafio h3 {
+	text-align: center;
+}
+
+.historia-criada .trechohistoria .infos-cont .box-desafio .destaque {
+	border-top: 1px dotted #f39f35;
+	border-bottom: 1px dotted #f39f35;
+	color: #e7870e;
+	margin: 30px;
+	padding: 20px 0;
+	text-align: center;
+}
+
+.historia-criada .novo-trecho-wrap {
+	display: block;
+	/*background: #eee;*/
+	padding: 20px 0px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.historia-criada .novo-trecho-wrap .adicionar-novo-trecho {
+	background-color: #f39f35;
+	display: inline-block;
+	padding: 14px 49px;
+	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	-webkit-border-radius: 7px;
+}
+
+
+
+
+/* ----------------------------- */
+/* ADICIONAR NOVO TRECHO - adicionar-novo-trecho.php */
+/* ----------------------------- */
+.historia-criada .introducao .btns-wrap {
+	text-align: center;
+}
+
+.historia-criada .introducao .btns-wrap .btn-salvar-novo-trecho {
+	background-color: #f39f35;
+	display: inline-block;
+	width: 48px;
+	margin: 10px 10px 0px 10px;
+	padding: 10px 50px;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;	
+	text-decoration: none;
+}
+
+.historia-criada .introducao .btns-wrap .btn-salvar-voltar {
+	background-color: #f39f35;
+	display: inline-block;
+	width: 48px;
+	margin: 10px 10px 0px 10px;
+	padding: 10px 50px;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;	
+	text-decoration: none;
+}
+
+
+
+/* ----------------------------- */
+/* COMO FUNCIONA */
+/* ----------------------------- */
+
+.como-funciona {
+	height: 1008px;
+	background: url(../img/bg-como-funciona.jpg) no-repeat;
+}
+
+.como-funciona  .menu-navegacao {
+	padding: 20px;
+	background: #333333;
+	display: table;
+	clear: both;
+}
+
+.como-funciona  .menu-navegacao li {
+	width: 150px;
+	height: 91px;
+	float: left;
+	display: inline-block;
+	background: url(../img/sprite-menu-como-funciona.png) no-repeat;
+}
+
+.como-funciona  .menu-navegacao li a {
+	display: block;
+	height: 100%;
+}
+
+.como-funciona  .menu-navegacao li.ativo, .como-funciona  .menu-navegacao li:hover {
+	background-color: #4c4c4c;
+}
+
+.como-funciona  .menu-navegacao li.cadastre {
+
+}
+
+.como-funciona  .menu-navegacao li.criar {
+	background-position: -150px 0px;	
+}
+
+.como-funciona  .menu-navegacao li.realize {
+	background-position: -300px 0px;
+}
+
+.como-funciona  .menu-navegacao li.conte {
+	background-position: -450px 0px;
+}
+
+.como-funciona h2 {
+	font-size: 30px;
+	font-weight: 600;
+	color: #fff;
+	text-align: center;
+	margin: 20px 0px 40px 0px;
+}
+
+.como-funciona .tabs-wrap {
+	padding: 0px 50px;
+}
+
+.como-funciona .tabs-wrap .tab .titulo {
+	display: table;
+	clear: both;
+	margin-bottom: 50px;
+}
+
+.como-funciona .tabs-wrap .tab .titulo h3 {
+	font-size: 35px;
+	font-weight: bold;
+	color: #fff;
+	display: inline-block;
+	float: left;
+	margin: 15px 0px 0px 20px;
+}
+.como-funciona .tabs-wrap .tab .titulo span {
+	background: url(../img/sprite-numeracao.png) no-repeat;
+	display: inline-block;
+	width: 92px;
+	height: 80px;
+	float: left;
+}
+
+	.como-funciona .tabs-wrap .tab-criar .titulo span { background-position: -100px 0px ;}
+	.como-funciona .tabs-wrap .tab-realize .titulo span { background-position: -202px 0px ;}
+	.como-funciona .tabs-wrap .tab-conte .titulo span { background-position: -304px 0px ;}
+
+.como-funciona .tabs-wrap .tab p {
+	font-size: 18px;
+	color: #fff;
+}
+
+.como-funciona .btn-wrap {
+	text-align: center;
+}
+
+.como-funciona .btn-wrap .voltar-como-funciona {
+	background-color: #333;
+	display: inline-block;
+	padding: 14px 49px;
+	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	-webkit-border-radius: 7px;
+	margin: 80px auto 0px;
+}
+
+.como-funciona .logo {
+	display: block;
+	margin: 170px auto 0px;
+}
+
+/* IMPORTANT */
+.historia-semaltura {
+	height: auto;
+	min-height: 1008px;
 }

@@ -14,9 +14,9 @@
       <span class="separador"></span>
 
       <ul>
-        <li class="itens-menu"><a href="#"> Visualizar Perfil </a></li>
+        <!-- <li class="itens-menu"><a href="#"> Visualizar Perfil </a></li> -->
         <li class="itens-menu"><a href="criarhistoria.php"> Criar História </a></li>
-        <li class="itens-menu"><a href="#"> Ler História </a></li>
+        <li class="itens-menu"><a href="ler-historia.php"> Ler História </a></li>
         <li class="itens-menu sair"><a href="deletecookie.php"> Sair </a></li>
       </ul>
 

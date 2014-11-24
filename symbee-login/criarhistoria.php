@@ -92,12 +92,15 @@
 
         <div class="radios">
           <h3 class="jogadores-titulo">Escolha o número de jogadores</h3>
-          <label for="1-jogador">1 jogador</label>
+
           <input type="radio" name="num-jogadores" id="1-jogador" value="1 jogador" />
-          <label for="2-jogadores">2 jogadores</label>
-          <input type="radio" name="num-jogadores" id="2-jogadores" value="2 jogadores" />
-          <label for="3-jogadores">3 jogadores</label>
+          <label for="1-jogador">Apenas eu</label>  
+
+          <input type="radio" name="num-jogadores" id="2-jogadores" value="2 jogadores" />        
+          <label for="2-jogadores">1 Colaborador</label>
+          
           <input type="radio" name="num-jogadores" id="3-jogadores" class="ultimo" value="3 jogadores" />
+          <label for="3-jogadores">2 Colaboradores</label>          
         </div>
         <a class="btn-criar" id="btncriar" href="#">Criar</a>
       </form>

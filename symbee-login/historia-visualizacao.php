@@ -9,6 +9,7 @@
   // $url = 'https://mysite.com/test/1234?basic=2&email=xyz2@test.com';
   $visualizacao = 0;
 
+
   $parts = parse_url($actual_link);
   parse_str($parts['query'], $query);
   $titulohistoriaclick = $query['nome'];
@@ -17,6 +18,8 @@
     $generohistoriaclick = $query['genero'];
     $criadorhistoriaclick = $query['criador'];
     $idnarrativa = $query['narrativa'];
+
+    $urlNovoTrecho = "adicionar-novo-trecho.php?nome=" . $titulohistoriaclick . "&genero=" . $generohistoriaclick . "&criador=" . $criadorhistoriaclick . "&narrativa=" . $idnarrativa;
   }
   else {
     echo("<script>window.location = 'criarhistoria.php';</script>");
@@ -58,18 +61,61 @@
   //echo $query['criador'];
   //echo $query['narrativa'];
 
-   try {
-        $stmt = $connection->prepare('SELECT * FROM tblTrechos WHERE idnarrativa = :idnarrativa ORDER BY indice');
-        $stmt->execute(array('idnarrativa' => $idnarrativa));
-         
-        $result = $stmt->fetchAll();
+  // Pegando o texto de introdução
+  try {
+    $stmt = $connection->prepare('SELECT * FROM tblIntros WHERE tema = :generohistoria');
+    $stmt->execute(array('generohistoria' => $generohistoria));
+     
+    $result = $stmt->fetchAll();
 
-        $numrodada = count($result);
-        // echo ($numrodada);
+    if ( count($result) ) { 
+      foreach($result as $row) {
+        $textointro = $row[intro];
+      }   
+    } else {
+      echo "No rows returned.";
+    }
 
-      } catch(PDOException $e) {
-          echo 'ERROR: ' . $e->getMessage();
-      }
+  } catch(PDOException $e) {
+      echo 'ERROR: ' . $e->getMessage();
+  }
+
+  // Pegando o nome do Criador
+  try {
+    $stmt = $connection->prepare('SELECT * FROM usuarios WHERE email = :criadorhistoriaclick');
+    $stmt->execute(array('criadorhistoriaclick' => $criadorhistoriaclick));
+     
+    $result = $stmt->fetchAll();
+
+    if ( count($result) ) { 
+      foreach($result as $row) {
+        $nomeinteirocriador = $row[nome];
+      }   
+    } else {
+      echo "No rows returned.";
+    }
+
+  } catch(PDOException $e) {
+      echo 'ERROR: ' . $e->getMessage();
+  }
+
+  // Pegando o número de rodadas e trechos da historia
+  try {
+    $stmt = $connection->prepare('SELECT * FROM tblTrechos WHERE idnarrativa = :idnarrativa ORDER BY indice');
+    $stmt->execute(array('idnarrativa' => $idnarrativa));
+     
+    $resultrecho = $stmt->fetchAll();
+
+    $numrodada = count($resultrecho);
+    // echo ($numrodada);
+
+  } catch(PDOException $e) {
+      echo 'ERROR: ' . $e->getMessage();
+  }
+
+
+
+
 
 
 ?>
@@ -89,7 +135,7 @@
 </head>
 <body>
 
-<div class="mobile-wrap historia-criada">
+<div class="mobile-wrap historia-criada historia-semaltura">
 
   <!-- TOP MENU + SIDE MENU -->
   <?php include('php/topmenu.php'); ?>
@@ -99,19 +145,100 @@
   <div>
     <!-- <p> Nome História: <?php //echo ($titulohistoriaclick); ?></p> -->
     <!-- <p> Gênero História: <?php //echo ($generohistoriaclick); ?> </p> -->
-    <p> Criador: <?php echo ($criadorhistoriaclick); ?></p>
+    <p class="contadapor">Contada por: <strong> <?php echo ($nomeinteirocriador); ?></strong></p>
   </div>
 
   <div>
     <?php
       //Trechos da história
+      echo ("<p class='textointro'> " . $textointro . " </p>");
      
-      if ( count($result) ) { 
-        foreach($result as $row) {
+      if ( count($resultrecho) ) { 
+        foreach($resultrecho as $row) {
           //print_r($row);
-          echo ("<p> Trecho: " . $row[indice] . "</p>");
-          echo ("<p> " . $row[texto] . " </p>");
-          echo ("<br/>");
+          $usuariotrecho = $row[idusuario];
+
+            // Adicionando o nome do criador do trecho
+            try {
+              $stmt = $connection->prepare('SELECT * FROM usuarios WHERE email = :usuariotrecho');
+              $stmt->execute(array('usuariotrecho' => $usuariotrecho));
+               
+              $resultTrecho = $stmt->fetchAll();
+
+              if ( count($resultTrecho) ) { 
+                foreach($resultTrecho as $rowTrecho) {
+                  $usuariotrecho = $rowTrecho[nome];
+                }   
+              } else {
+                echo "No rows returned.";
+              }
+
+            } catch(PDOException $e) {
+                echo 'ERROR: ' . $e->getMessage();
+            }
+
+
+          //echo ("<p> Trecho: " . $row[indice] . "</p>");
+          echo ("<div class='trechohistoria'>");
+            echo ("<p class='textotrecho'> " . $row[texto] . " </p>");
+
+            
+            echo ("<p class='clickinfos'><a href='#' class='info-click'> Informações </a></p>");
+            echo ("<div class='infos-cont'>");
+              echo ("<p> Escrito por: <strong>" . $usuariotrecho . "</strong> </p>");
+              echo ("<input type='hidden' class='indicetrecho' name='indicetrecho' value='"  . $row[indice] . "' />");
+
+              $urlcontinuacao = "continuar-novo.php?nome=" . $titulohistoriaclick . "&email=" . $varemail . "&tema=" . $generohistoriaclick . "&indice=" . $row[indice] . "&idnarrativa=" . $idnarrativa ;
+
+              if ($row[indice] == 1) {
+                
+              } else {
+
+                echo ("<a href='#' class='verdesafiotrecho'> Ver Desafio </a>");
+
+                echo ("
+                  <div class='mask'></div>
+                  <div class='box-desafio'>
+                    <h3>Desafio do trecho</h3>
+                    <p class='destaque'>");
+
+                    // Pegando Desafio do trecho
+                    try {
+                      $stmt = $connection->prepare('SELECT * FROM tblDesafios WHERE nivel = :nivel');
+                      $stmt->execute(array('nivel' => $row[indice]));
+                       
+                      $resultdesafios = $stmt->fetchAll();
+
+                      if ( count($resultdesafios) ) { 
+                        foreach($resultdesafios as $rowdesafios) {
+                          echo ($rowdesafios[desafio]);
+                        }   
+                      } else {
+                        echo "No rows returned.";
+                      }
+
+                    } catch(PDOException $e) {
+                        echo 'ERROR: ' . $e->getMessage();
+                    }
+
+                    if ($row[palavrachave]) {
+                      echo ("<br/> <br/>");
+                      echo ("Palavra-chave: " . $row[palavrachave]);
+                    }
+
+                echo ("
+                    </p>
+                  </div>");
+
+              }
+
+
+
+
+              echo ("<a href='" . $urlcontinuacao . "' class='continuar-novo'> Continuar desse ponto </a>");
+            echo ("</div>");
+
+          echo ("</div>");
           //$trechointro = $row[intro];
         }   
 
@@ -120,6 +247,29 @@
         //echo "No rows returned.";
         echo("<script>console.log('PHP Trecho Intro: No Rows Returned.');</script>");
       }
+
+      // Pegando relação de historia e usuario
+      try {
+        $stmt = $connection->prepare('SELECT * FROM tblHistoriaPessoa WHERE relUser = :relemail AND relNarrativa = :idrel');
+        $stmt->execute(array('relemail' => $varemail, 'idrel' => $idnarrativa));
+         
+        $result = $stmt->fetchAll();
+
+        if ( count($result) ) { 
+          foreach($result as $row) {
+            if ($numrodada < 16) {
+              echo ("<div class='novo-trecho-wrap'>");
+                echo ("<a href='" . $urlNovoTrecho . "' class='adicionar-novo-trecho'> Adicionar novo trecho </a> ");
+              echo ("</div>");
+            }
+          }   
+        }
+
+      } catch(PDOException $e) {
+          echo 'ERROR: ' . $e->getMessage();
+      }
+
+
 
 
     ?>

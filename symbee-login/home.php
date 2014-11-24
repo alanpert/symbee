@@ -81,7 +81,7 @@
     if ($session) {
       echo("<script>window.location.reload(true);</script>");
     } else {
-      echo("<script>window.location = 'http://symbee.com.br/symbee-login/index.php';</script>");
+      echo("<script>window.location = 'index.php';</script>");
     }
   }
 

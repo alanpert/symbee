@@ -37,7 +37,7 @@ use Facebook\GraphObject;
 FacebookSession::setDefaultApplication('709089719179470','f6dde677f96d42beee8ab9a29edcbea8');
 
 // login helper with redirect_uri
-$helper = new FacebookRedirectLoginHelper( 'http://symbee.com.br/symbee-login/home.php' );
+$helper = new FacebookRedirectLoginHelper( 'http://symbee.com.br/mobile/home.php' );
 
 try {
   $session = $helper->getSessionFromRedirect();
@@ -58,7 +58,7 @@ try {
 	  $userEmail	= $graphObject->getProperty('email');
 	  $_SESSION['user'] = $userEmail;
 
-	  setcookie("user",$userEmail, time()+3600);
+	  setcookie("user",$userEmail, time()+3600*3);
 	  echo("<script>console.log('PHP fbconect: useremail: ".$userEmail."');</script>");  
 	  //echo("<script>console.log('PHP fbconect: Cookie: ".$_COOKIE['user']."');</script>");  
 

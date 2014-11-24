@@ -71,7 +71,7 @@ $(document).ready(function() {
 	
 	$('.radios input').click(function() {
 		$('.radios label').removeClass('selected');
-		$(this).prev().addClass('selected');
+		$(this).next().addClass('selected');
 		$('.b-criar').addClass('ready')
 	});
 
@@ -118,5 +118,108 @@ $(document).ready(function() {
 		$(this).removeClass("error");
 		$(".min-carac").removeClass("error");
 	});
+
+
+// ********************************
+// HISTÓRIA VISUALIZAÇÃO
+// ********************************
+
+	$(".info-click").click(function() {
+		$(this).parent().siblings(".infos-cont").slideToggle();
+
+		return false;
+	});
+
+	$(".btn-salvar-novo-trecho").click(function() {
+		var mincarac = $("#mincaracteres").val();
+		var textointro = $("#addnovotrecho").val();
+		var textotamanho = textointro.length;
+		if (textotamanho < mincarac) {
+			$("#addnovotrecho").addClass("error");
+			$("#addnovotrecho").focus();
+			$(".min-carac").addClass("error");
+		}
+		else {
+			$("#form-intro").submit();
+		}
+		return false;
+		
+	});
+
+	$("#addnovotrecho").blur(function() {
+		$(this).removeClass("error");
+		$(".min-carac").removeClass("error");
+	});
+
+	$("#addnovotrecho").keyup(function() {
+		textotamanho = $("#addnovotrecho").val().length;
+		$(".contador-caracteres").html(textotamanho);
+		$(this).removeClass("error");
+		$(".min-carac").removeClass("error");
+	});
+
+
+	// Ver Desafio
+	$(".verdesafiotrecho").click(function() {
+		$(this).siblings(".mask").show();
+		$(this).siblings(".box-desafio").show();
+
+		return false;
+	});
+
+	$(".mask").click(function() {
+		$(this).hide();
+		$(this).siblings(".box-desafio").hide();
+	});
+
+
+
+	//CONVIDAR AMIGO
+	$(".abrir-convidar").click(function() {
+		$("#drop-config-hist").slideUp("fast");
+		$(".box-convidar-amigos").slideDown();
+
+		return false;
+	});
+
+	$(".btn-fechar-convidar").click(function() {
+		$(".box-convidar-amigos").slideUp();
+		$(".box-convidar-amigos-sucesso").slideUp();
+
+		return false;
+	});
+
+	$(".btn-ok-convidar").click(function() {
+		$(".box-convidar-amigos").hide();
+		$(".box-convidar-amigos-sucesso").show();
+		// $("#form-convidar").submit();
+
+		return false;
+	});
+
+
+	
+
+
+
+// ********************************
+// COMO FUNCIONA
+// ********************************
+
+	$(".tabs-wrap>div").hide();
+	$(".tabs-wrap>div:first-child").show();
+
+	$(".menu-navegacao li a").click(function() {
+		$(".menu-navegacao li").removeClass("ativo");
+		$(this).parent().addClass("ativo");
+
+		$(".tabs-wrap>div").hide();
+
+		var tabshow = $(this).attr("href");
+		$(tabshow).show();
+
+		return false;
+	});
+
 
 });
