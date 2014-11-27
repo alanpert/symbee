@@ -54,7 +54,7 @@
                 </div>
                 <div class="fivecol last">
                 	<div class="menu-login-area">
-                        <a href="#" class="ler-link">Ler uma história</a>
+                        <a href="ler-historia.php" class="ler-link">Ler uma história</a>
                         <a href="criar-historia.php">Nova história</a><a href="#">Sair</a>
                     </div>
                     <input type="text" placeholder="Pesquise..." id="site-search" />
@@ -90,7 +90,7 @@
                 <div class="foto" style="background: url('<?php echo ($varurlfoto); ?>') center no-repeat">
                     <div class="foto-mask"></div>
                 </div>
-            	<img src="library/img/placeholder/user-place-img.png" alt="Cauê Ancona" title="Cauê Ancona" />
+            	<!-- <img src="library/img/placeholder/user-place-img.png" alt="Cauê Ancona" title="Cauê Ancona" /> -->
                 <h2 class="h3"><?php echo ($varnome); ?></h2>
                 <p><?php echo ($varemail); ?></p>
                 <a href="criar-historia.php" class="button yellow">Nova história</a>

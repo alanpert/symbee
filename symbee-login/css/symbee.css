@@ -261,7 +261,7 @@ input:focus, textarea:focus {
 /* ----------------------------- */
 .home {
 	width: 640px;
-	height: 1008px;
+	height: auto;
 	margin: 0 auto;
 }
 

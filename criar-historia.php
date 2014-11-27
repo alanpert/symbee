@@ -51,16 +51,16 @@
         	<h1 class="color-white">Criar nova história</h1>
             <h2 class="desc-title color-white">Preencha as informações abaixo e começe a desenvolver a sua história</h2>
         	<div class="box-criar-historia clearfix">
-            	<form action="#" id="criar-form" method="post">
-                	<input type="text" id="name-historia" placeholder="Insira o nome da história..." />
+            	<form action="inicio-historia.php" id="criar-form" method="post">
+                	<input type="text" name="name-historia" id="name-historia" placeholder="Insira o nome da história..." />
                     <p class="desc-input">O nome da história poderá ser mudado ao decorrer da história</p>
                     <a class="selecione-cat no-select">Selecione o gênero*</a>
                     <p class="desc-input">Escolha o gênero que guiará sua história</p>
                     <ul class="fake-select">
-                    	<li>Aventura e ação</li>
+                    	<li>Ação e Aventura</li>
                     	<li>Comédia</li>
                     	<li>Fantasia</li>
-                    	<li>Ficção científica</li>
+                    	<li>Ficção Científica</li>
                     	<li>Romance</li>
                     	<li>Terror</li>
                     </ul>
@@ -75,7 +75,7 @@
                         <label for="3-jogadores">3 jogadores</label>
                         <input type="radio" name="num-jogadores" id="3-jogadores" class="ultimo" value="3 jogadores" />
                     </div>
-                    <a href="inicio-historia.html" class="button yellow float-right t-margin-30 b-criar">Criar</a>
+                    <a href="#" class="button yellow float-right t-margin-30 b-criar" id="btncriar">Criar</a>
                 </form>
             </div>
         </div>

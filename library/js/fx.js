@@ -84,6 +84,8 @@ $(document).ready(function() {
 		$('.fake-select').removeClass('open');
 		$('.selecione-cat').removeClass('active').text(Genero);
 		$('.radios').css({display: 'block'}).stop().animate({opacity: 1});
+		// Criar história - passa genero para input hidden
+		$('#genero-historia').val(Genero);
 	});
 	
 	$('.radios label').click(function() {
@@ -117,8 +119,8 @@ $(document).ready(function() {
 	});
 	
 	$('.ver-desafio').click(function(e) {
-		$('.mask').css({display: 'block'}).stop().animate({opacity: .7}, 300);
-		$('.box-desafio').css({display: 'block'}).stop().animate({opacity: 1}, 300);
+		$(this).siblings('.mask').css({display: 'block'}).stop().animate({opacity: .7}, 300);
+		$(this).siblings('.box-desafio').css({display: 'block'}).stop().animate({opacity: 1}, 300);
     });
 	
 	/* */
@@ -207,6 +209,76 @@ $(document).ready(function() {
 			$(this).css({display: 'block'});
 		});
 	});
+
+
+
+	// EDITADOS BY ALAN
+	
+	// Criar historia
+	$("#btncriar").click(function() {
+		$("#criar-form").submit();
+
+		return false;
+	});
+
+	//COntador de caracteres
+	$("#addintro").keyup(function() {
+		textotamanho = $("#addintro").val().length;
+		$(".contador-caracteres").html(textotamanho);
+		$(this).removeClass("error");
+		$(".min-caracteres").removeClass("error");
+	});
+
+	// Salvar Intro - Validaçao e post de form
+	$(".btn-salvar").click(function() {
+		var textointro = $("#addintro").val();
+		var textotamanho = textointro.length;
+		if (textotamanho < 150) {
+			$("#addintro").addClass("error");
+			$("#addintro").focus();
+			$(".min-caracteres").addClass("error");
+		}
+		else {
+			$("#form-intro").submit();
+		}
+		return false;
+	});
+
+	$("#addintro").blur(function() {
+		$(this).removeClass("error");
+		$(".min-caracteres").removeClass("error");
+	});
+
+	//Salvar novo trecho
+
+	$(".btn-salvar-novo-trecho").click(function() {
+		var mincarac = $("#mincaracteres").val();
+		var textointro = $("#addnovotrecho").val();
+		var textotamanho = textointro.length;
+		if (textotamanho < mincarac) {
+			$("#addnovotrecho").addClass("error");
+			$("#addnovotrecho").focus();
+			$(".min-caracteres").addClass("error");
+		}
+		else {
+			$("#form-intro").submit();
+		}
+		return false;
+	});
+
+	$("#addnovotrecho").blur(function() {
+		$(this).removeClass("error");
+		$(".min-caracteres").removeClass("error");
+	});
+
+	$("#addnovotrecho").keyup(function() {
+		textotamanho = $("#addnovotrecho").val().length;
+		$(".contador-caracteres").html(textotamanho);
+		$(this).removeClass("error");
+		$(".min-caracteres").removeClass("error");
+	});
+
+
 });
 
 // t: current time, b: begInnIng value, c: change In value, d: duration
