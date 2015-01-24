@@ -144,7 +144,7 @@ h2, .h2 {
 		width: 190px;
 	}
 	
-	.selecione-cat {
+	.selecione-cat, .ler-uma-historia-selecione-cat {
 		display: block;
 		opacity: 1;
 		
@@ -235,6 +235,10 @@ h2, .h2 {
 .bg-red { background-color: @red; }
 .bg-black { background-color: #222; }
 
+.c-default { cursor: default; } 
+.c-pointer { cursor: pointer; }
+.cancel-click { pointer-events: none; } 
+
 .destaque {
 	border-top: 1px dotted @yellow;
 	border-bottom: 1px dotted @yellow;
@@ -243,6 +247,8 @@ h2, .h2 {
 	padding: 20px 0;
 	text-align: center;
 }
+
+.no-decoration { text-decoration: none !important; &:hover { text-decoration: none !important; } }
 
 .destaque.small { margin: 30px auto; width: 80%; }
 
@@ -953,8 +959,36 @@ input[type="text"] {
 }
 
 .banner.sobre {
-	background-image: url(../img/placeholder/anhembi-morumbi.jpg);
-	height: 600px;
+	background-image: url(../img/placeholder/print-video-banner.jpg);
+	background-attachment: initial;
+	height: 400px;
+	position: relative;
+	
+	&:hover {
+		&:after {
+			opacity: .6;
+		}
+	}
+	
+	&:after {
+		background: #111;
+		content: '';
+		height: 100%;
+		opacity: .2;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+		.transition();
+	}
+	
+	.desc-title {
+		text-shadow: 1px 1px 0 #000;
+	}
+	
+	.container { position: relative; z-index: 2; }
+	
+	h1 { margin-top: 80px; padding-bottom: 18px; }
 }
 
 .single-banner {
@@ -1064,10 +1098,96 @@ input[type="text"] {
 	}
 	
 	#facebook { background-image: url(../img/elementos/facebook-sprite.png); } 
-	#pinterest { background-image: url(../img/elementos/pinterest-sprite.png); } 
+	#youtube { background-image: url(../img/elementos/youtube-sprite.png); } 
 	#twitter { background-image: url(../img/elementos/twitter-sprite.png); } 
 	#instagram { background-image: url(../img/elementos/instagram-sprite.png); } 
 	#rss { background-image: url(../img/elementos/rss-sprite.png); } 
+}
+
+.box-video-home {
+	left: -85px;
+	bottom: -315px;
+	position: absolute;
+	
+	&:hover {
+		&:before { opacity: .8; }
+		&:after { background-position: center bottom; }
+	}
+	
+	&:before {
+		background: #000;
+		content: '';
+		height: 240px;
+		left: 70px;
+		opacity: .6;
+		position: absolute;
+		top: 22px;
+		width: 382px;
+		.transition();
+	}
+	&:after {
+		background: url(../img/elementos/play-icon.png) center top no-repeat;
+		content: '';
+		height: 66px;
+		left: 220px;
+		opacity: 1;
+		position: absolute;
+		top: 115px;
+		width: 96px;
+	}
+}
+
+.palavra-chave {
+	border-top: 1px dotted @dark-yellow;
+	border-bottom: 1px dotted @dark-yellow;
+	color: @dark-yellow;
+	margin: 30px;
+	padding: 20px 0;
+	text-align: center;
+	font-size: 20px;
+	width: 30%;
+	margin: 30px auto 0;
+	
+	span { font-size: 22px; font-weight: 700; } 
+}
+
+.img-rodada {
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 162px;
+	margin: 35px auto;
+	position: relative;
+	width: 183px;
+	
+	&:hover { &:after, &:before { opacity: 1; } }
+	
+	&:before {
+		content: '+';
+		color: @white;
+		opacity: 0;
+		font-size: 86px;
+		font-weight: 600;
+		left: 66px;
+		position: absolute;
+		text-align: center;
+		top: 21px;
+		z-index: 2;
+		.transition();
+	}
+	
+	&:after {
+		background: url(../img/placeholder/pelicula.png) center center no-repeat;
+		content: '';
+		height: 100%;
+		opacity: 0;
+		position: absolute;
+		width: 100%;
+		.transition();
+	}
+}
+
+.img-rodada.deserto {
+	background-image: url(../img/placeholder/deserto-img-desafio.png);
 }
 
 #note-print { 
@@ -1104,6 +1224,16 @@ input[type="text"] {
 	position: absolute;
 	right: -20px;
 	width: 185px;	
+}
+
+.desc-hand-write.left {
+	right: -60px;
+	top: 330px;
+	transform: rotate(-25deg);	
+	-webkit-transform: rotate(-25deg);	
+	-moz-transform: rotate(-25deg);	
+	-ms-transform: rotate(-25deg);	
+	-o-transform: rotate(-25deg);	
 }
 
 .generos-historias {
@@ -1489,9 +1619,9 @@ footer {
 		-o-transform: rotate(120deg);
 	}
 	
-	#pinterest { 
+	#youtube { 
 		background-image: url(../img/elementos/pinterest-molde-footer.png);
-		~ .icon { background-image: url(../img/elementos/pinterest-footer.png); }
+		~ .icon { background-image: url(../img/elementos/youtube-footer.png); }
 	}
 	#facebook { 
 		background-image: url(../img/elementos/facebook-molde-footer.png);
@@ -1597,7 +1727,7 @@ footer {
 }
 .box-criar-historia.sent-hist { * { opacity: .3; } }
 
-.radios, .selecione-cat ~ .desc-input, .b-criar {
+.radios, .selecione-cat ~ .desc-input, .b-criar, .ler-uma-historia-selecione-cat ~ .desc-input {
 	display: none;
 	opacity: 0;
 }
@@ -1633,7 +1763,7 @@ footer {
 	}
 }
 
-.selecione-cat {
+.selecione-cat, .ler-uma-historia-selecione-cat {
 	background: url(../img/elementos/select-arrow.png) 93% top no-repeat;
 	border: 1px solid #ccc;
 	border-radius: 7px;
@@ -1682,7 +1812,7 @@ footer {
 .radios {
 	label { cursor: pointer; font-size: 15px; .transition(); &:hover { color: #A8A8A8; } }
 	label.selected { color: @yellow; font-weight: 700; .transition() }
-	input { margin-right: 45px; }
+	input { margin-right: 30px; }
 	input.ultimo { margin-right: 0; }
 }
 
@@ -2313,6 +2443,8 @@ footer {
 	z-index: 9999;
 }
 
+.ler-uma-historia { position: absolute; }
+
 /* COMO FUNCIONA */
 
 .nav-como-funciona { width: 100%; top: 0; .transition(); z-index: 999; }
@@ -2447,4 +2579,43 @@ footer {
 		height: 130px;
 		margin-bottom: 20px;
 	}
+}
+
+.foto {
+	display: block;
+	width: 200px;
+	height: 200px;
+	margin: 0px auto 0;
+}
+
+.foto .foto-mask {
+	display: block;
+	width: 200px;
+	height: 200px;
+	background: url(../img/elementos/mascara-foto-perfil.png) no-repeat;
+}
+
+
+.contador-caracteres {
+	position: absolute;
+	display: block;
+	bottom: 108px;
+	right: 194px;
+	color: #f39f35;
+	text-align: right;
+}
+
+.min-caracteres.error {
+	color: #f33535;
+	font-weight: bold;
+}
+
+textarea.error {
+	border-color: #f33535;
+}
+
+.c2a-texto {  
+	font-size: 20px;
+	font-weight: 400;
+	text-transform: uppercase;
 }

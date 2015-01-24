@@ -17,10 +17,10 @@
 <script type="text/javascript" src="library/js/lightbox/source/helpers/jquery.fancybox-media.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript">
-	$(document).ready(function() {
+    $(document).ready(function() {
         $('html').niceScroll({ cursorwidth: 9, scrollspeed: 90 });
-		$('#ascrail2001').css({opacity: 0});
-		$('#ascrail2001 div').css({top: 310});
+        $('#ascrail2001').css({opacity: 0});
+        $('#ascrail2001 div').css({top: 310});
     });
 </script>
 
@@ -31,44 +31,82 @@
 
 <div class="site" id="site-interna">
 	<div class="mask"></div>
+    <div class="ler-uma-historia box">
+        <h4>Ler uma história</h4>
+        <div class="genero-historia" id="ler-uma-historia">
+            <div class="icon-molde"></div>
+            <div class="icon"></div>
+        </div>
+        <div class="clearfix"></div>
+        <a class="ler-uma-historia-selecione-cat no-select">Selecione o gênero</a>
+        <p class="desc-input">Escolha o gênero que guiará sua história</p>
+        <form action="ler-historia.php" id="ler-historia" method="post">
+            <ul class="fake-select">
+              <li>Ação e Aventura</li>
+              <li>Comédia</li>
+              <li>Fantasia</li>
+              <li>Ficção Científica</li>
+              <li>Romance</li>
+              <li>Terror</li>
+            </ul>
+            <input type="hidden" id="genero-historia-ler" name="genero-historia-ler" />
+        </form>
+        <div class="text-center t-margin-40"><a href="#" class="button inline yellow" id="ler-btn">Ler</a></div>
+    </div>
+    <div class="editar-capa box">
+        <h3>Editar capa</h3>
+        <input type="file" accept=".jpg,.jpeg,.png" />
+        <div class="text-center"><a class="button yellow inline t-margin-40">Salvar</a></div>
+    </div>
+    <div class="sair-pagina box">
+        <h3>Deseja realmente sair dessa página?</h3>
+        <p>Se sair da página, você perdera todo o andamento do seu post, salvando apenas a história.</p>
+        <div class="text-center t-margin-40">
+            <a class="button inline r-margin-40">Ficar</a>
+            <a href="homepage-logado.php" class="button red inline">Sair</a>
+        </div>
+    </div>
+
     <header class="logged">
-    	<div class="container relative clearfix h-100">
-        	<a class="login-drop">Ver perfil</a>
-        	<div class="fivecol first">
-            	<a href="homepage-logado.php" class="logo-symbee-site">
-                	<img src="library/img/elementos/logo-symbee-positivo.png" alt="Symbee | Narrativas colaborativas" title="Symbee | Narrativas colaborativas" />
+        <div class="container relative clearfix h-100">
+            <a class="login-drop">Ver perfil</a>
+            <div class="fivecol first">
+                <a href="homepage-logado.php" class="logo-symbee-site">
+                    <img src="library/img/elementos/logo-symbee-positivo.png" alt="Symbee | Narrativas colaborativas" title="Symbee | Narrativas colaborativas" />
                 </a>
             </div>
             <div class="sevencol last">
-            	<div class="sevencol first">
+                <div class="sevencol first">
                     <ul class="menu-principal first clearfix">
-                        <a href="#"><li>Entenda <span>&rsaquo;</span></li></a>
+                        <a href="#" class="c-default"><li>Entenda <span>&rsaquo;</span></li></a>
                         <a href="como-funciona.php"><li class="no-border">Sobre a jogabilidade</li></a>
-                        <a href="projeto.php"><li class="no-border">Sobre o projeto</li></a>
+                        <a href="sobre-projeto.php"><li class="no-border">Sobre o projeto</li></a>
                     </ul>
                     <ul class="menu-principal clearfix">
-                        <a href="#"><li>Fale conosco <span>&rsaquo;</span></li></a>
-                        <a href="#"><li class="no-border">Sobre dúvidas</li></a>
-                        <a href="#"><li class="no-border">Sobre colaborar</li></a>
+                        <a href="#" class="c-default"><li>Fale conosco <span>&rsaquo;</span></li></a>
+                        <a href="contato.php"><li class="no-border">Sobre dúvidas</li></a>
+                        <a href="contato.php"><li class="no-border">Sobre colaborar</li></a>
                     </ul>
                 </div>
                 <div class="fivecol last">
-                	<div class="menu-login-area">
-                        <a href="ler-historia.php" class="ler-link">Ler uma história</a>
-                        <a href="criar-historia.php">Nova história</a><a href="#">Sair</a>
+                    <div class="menu-login-area">
+                        <a href="#" class="ler-link">Ler uma história</a>
+                        <a href="criar-historia.php">Nova história</a>
+                        <a href="deletecookie.php">Sair</a>
                     </div>
                     <input type="text" placeholder="Pesquise..." id="site-search" />
                     <ul class="social-media">
-                    	<a href="#"><li id="facebook"></li></a>
-                    	<a href="#"><li id="pinterest"></li></a>
-                    	<a href="#"><li id="twitter"></li></a>
-                    	<a href="#"><li id="instagram"></li></a>
-                    	<a href="#"><li id="rss"></li></a>
+                        <a href="https://www.facebook.com/symbeeoficial" target="_blank"><li id="facebook"></li></a>
+                        <a href="https://www.youtube.com/user/symbeenarrativas" target="_blank"><li id="youtube"></li></a>
+                        <a href="https://twitter.com/symbee_NC" target="_blank"><li id="twitter"></li></a>
+                        <a href="#" target="_blank"><li id="instagram"></li></a>
+                        <a href="#" target="_blank"><li id="rss"></li></a>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
+    
     <div class="area-perfil bg-negative">
     	<div class="container clearfix relative h-100">
         	<div class="fourcol first" style="height: 20px;">
@@ -78,7 +116,7 @@
                     <a id="ver-hists" class="infos-gerais no-select">Ver minhas histórias</a>
                 </p>
             	<p class="infos-gerais">
-                    <a class="infos-gerais">Ler uma história</a>
+                    <a class="infos-gerais ler-link-perfil">Ler uma história</a>
                 </p>
                 <div class="box-sobre-user">
                 	<textarea maxlength="200" placeholder="Escreva o que está pensando..."></textarea>
@@ -98,29 +136,29 @@
             <div class="fourcol last">
             	<h3>Atualizações</h3>
                 <ul class="list-attualizacoes">
-                	<li class="clearfix">
-                    	<div class="img-att" id="user4"></div>
+                    <li class="clearfix">
+                        <div class="img-att" id="user4"></div>
                         <p class="text-att"><strong>Nadja Cunha</strong> te convidou para entrar em um grupo.</p>
                         <a class="action-text">Recusar</a>
                         <a class="action-text yellow first-l">Aceitar</a>
                     </li>
-                	<li class="clearfix">
-                    	<div class="img-att" id="user2"></div>
+                    <li class="clearfix">
+                        <div class="img-att" id="user2"></div>
                         <p class="text-att"><strong>Robinson Jr</strong> adicionou um novo trecho na história.</p>
                         <a class="action-text yellow">Visualizar</a>
                     </li>
-                	<li class="clearfix">
-                    	<div class="img-att" id="user3"></div>
+                    <li class="clearfix">
+                        <div class="img-att" id="user3"></div>
                         <p class="text-att"><strong>Cris Moraes</strong> comentou em um trecho da sua história.</p>
                         <a class="action-text yellow">Visualizar</a>
                     </li>
-                	<li class="clearfix">
-                    	<div class="img-att" id="user4"></div>
+                    <li class="clearfix">
+                        <div class="img-att" id="user4"></div>
                         <p class="text-att"><strong>Nadja Cunha</strong> Solicitou a atualização do título da sua história.</p>
                         <a class="action-text yellow">Visualizar</a>
                     </li>
-                	<li class="clearfix">
-                    	<div class="img-att" id="user2"></div>
+                    <li class="clearfix">
+                        <div class="img-att" id="user2"></div>
                         <p class="text-att"><strong>Robinson Jr</strong> te convidou para entrar em um grupo.</p>
                         <a class="action-text">Recusar</a>
                         <a class="action-text yellow first-l">Aceitar</a>
@@ -137,27 +175,71 @@
             </div>
         	<h2 class="b-margin-50">Histórias em andamento</h2>
         	<ul class="list-minhas-hists">
-            	<li id="m-his1">
-                	<div class="img"></div>
-                    <h3>O cavaleiro honrado</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est et leo mattis pulvinar. Mauris sed hendrerit tortor.</p>
-                    <a class="editor-links">Editar</a>
-                    <a class="editor-links">Excluir</a>
-                </li>
-            	<li id="m-his2">
-                	<div class="img"></div>
-                    <h3>A última corrida</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est et leo mattis pulvinar. Mauris sed hendrerit tortor.</p>
-                    <a class="editor-links">Editar</a>
-                    <a class="editor-links">Excluir</a>
-                </li>
-            	<li id="m-his3">
-                	<div class="img"></div>
-                    <h3>Dragões valentes ll: O coração de fogo</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est et leo mattis pulvinar. Mauris sed hendrerit tortor.</p>
-                    <a class="editor-links">Editar</a>
-                    <a class="editor-links">Excluir</a>
-                </li>
+
+
+          <?php
+            // TRAZENDO AS NARRATIVAS RELACIONADAS COM O USUARIO
+            try {
+              $stmt = $connection->prepare('SELECT * FROM tblNarrativas WHERE criador = :email');
+              $stmt->execute(array('email' => $cookieemail));
+             
+              $result = $stmt->fetchAll();
+             
+              $numHistorias = count($result);
+
+
+              if ( $numHistorias > 0 ) {
+                $historiasrestantes = 0;
+                $conthistorias = 0;
+                $vertodas = 0;
+
+                foreach($result as $row) {
+                  if ($conthistorias < 3) {
+                    $idnarrativa = $row[id];
+                    $narrativacriador = $row[criador];
+                    $narrativanome = $row[nome];
+                    $narrativagenero = $row[tema];
+                    $urlhistoria = "single-historia.php?nome=" . $narrativanome . "&genero=" . $narrativagenero . "&criador=" . $narrativacriador . "&narrativa=" . $idnarrativa;
+
+                    echo ('
+                    <li id="m-his1">
+                      <div class="img"></div>
+                      <h3>' . $narrativanome . '</h3>
+                      <p>
+                        Gênero: ' . $narrativagenero . ' <br/>
+                        Criador: ' . $narrativacriador . '
+                      </p>
+                      <a class="editor-links" href="' . $urlhistoria . '">Editar</a>
+                    </li>
+                    ');
+                    $conthistorias++;
+
+                  } else {
+                    if ($vertodas == 0) {
+                      $vertodas = 1;
+                    }
+                  }
+
+
+                }
+
+
+
+              } else {
+                echo ("<p class='nao-participando'> Você atualmente não está participando de nenhuma história. <br/><br/></p>");
+              }
+
+
+
+
+
+            } catch(PDOException $e) {
+              echo 'ERROR: ' . $e->getMessage();
+            }
+
+          ?>
+
+                
             </ul>
             <div class="text-center t-margin-40">
                 <a href="#" class="button inline">Ver todas</a>

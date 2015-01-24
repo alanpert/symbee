@@ -3,6 +3,8 @@
 	include('php/conect.php');  
 	include('php/teste-login.php');
 
+  $generofiltro = $_POST["genero-historia-ler"];
+
 	// try {
  //      $stmt = $connection->prepare('SELECT * FROM tblNarrativas');
  //      // $stmt->execute(array('email' => $cookieemail));
@@ -25,8 +27,8 @@
 
 
    try {
-    $stmt = $connection->prepare('SELECT * FROM tblNarrativas');
-    $stmt->execute();
+    $stmt = $connection->prepare('SELECT * FROM tblNarrativas WHERE tema = :generofiltro');
+    $stmt->execute(array('generofiltro' => $generofiltro));
 
     $result = $stmt->fetchAll();
     $totalnarrativas = count($result);

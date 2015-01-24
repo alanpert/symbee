@@ -15,9 +15,9 @@
     $visualizacao = 1;
     $generohistoriaclick = $query['genero'];
     $criadorhistoriaclick = $query['criador'];
-    $idnarrativa = $query['narrativa'];
+    $idnarrativaurl = $query['narrativa'];
 
-    $urlNovoTrecho = "novo-trecho.php?nome=" . $titulohistoriaclick . "&genero=" . $generohistoriaclick . "&criador=" . $criadorhistoriaclick . "&narrativa=" . $idnarrativa;
+    $urlNovoTrecho = "novo-trecho.php?nome=" . $titulohistoriaclick . "&genero=" . $generohistoriaclick . "&criador=" . $criadorhistoriaclick . "&narrativa=" . $idnarrativaurl;
   }
   else {
     echo("<script>window.location = 'criar-historia.php';</script>");
@@ -98,7 +98,7 @@
   // Pegando o número de rodadas e trechos da historia
   try {
     $stmt = $connection->prepare('SELECT * FROM tblTrechos WHERE idnarrativa = :idnarrativa ORDER BY indice');
-    $stmt->execute(array('idnarrativa' => $idnarrativa));
+    $stmt->execute(array('idnarrativa' => $idnarrativaurl));
      
     $resultrecho = $stmt->fetchAll();
 
@@ -169,9 +169,56 @@
                 <p><!-- Quisque ac lorem neque. Nulla id neque dolor. Cras dignissim, libero sit amet malesuada posuere, ipsum enim aliquam ligula, a vehicula orci erat tristique nulla. --></p>
                 <h4 class="widgettitle">Conheça os autores</h4>
                 <ul class="outros-part-list">
-                    <a href="homepage-logado.html"><li id="caue"><div class="tool-autor">Cauê Ancona</div></li></a>
-                    <a href="homepage-logado.html"><li id="nadja"><div class="tool-autor">Nadja Cunha</div></li></a>
-                    <a href="homepage-logado.html"><li id="robinson"><div class="tool-autor">Robinson Jr.</div></li></a>
+
+                  <?php
+                    //echo ($idnarrativa);
+                    try {
+                      $stmt = $connection->prepare('SELECT * FROM tblHistoriaPessoa WHERE relNarrativa = :idnarrativa');
+                      $stmt->execute(array('idnarrativa' => $idnarrativaurl));
+                       
+                      $resultrelnarrativa = $stmt->fetchAll();
+
+                      if ( count($resultrelnarrativa) ) { 
+                        foreach($resultrelnarrativa as $rowrelnarrativa) {
+                          //print_r($rowrelnarrativa);
+                          $emailreluser = $rowrelnarrativa[relUser];
+
+                          try {
+                            $stmt = $connection->prepare('SELECT * FROM usuarios WHERE email = :emailreluser');
+                            $stmt->execute(array('emailreluser' => $emailreluser));
+                             
+                            $resultautores = $stmt->fetchAll();
+
+                            if ( count($resultautores) ) { 
+                              foreach($resultautores as $rowautores) {
+                                $autornome = $rowautores[nome];
+                                $autorfoto = $rowautores[foto];
+                              }   
+                            } else {
+                              echo "No rows returned.2";
+                            }
+
+                          } catch(PDOException $e) {
+                              echo 'ERROR: ' . $e->getMessage();
+                          }
+
+
+
+
+                          echo ('
+                            <a href="#"><li style="background: url(' . $autorfoto .'); background-size: 70px 70px; "><div class="tool-autor">'. $autornome .'</div></li></a>
+                          ');
+                        }   
+                      } else {
+                        echo "No rows returned.2";
+                      }
+
+                    } catch(PDOException $e) {
+                        echo 'ERROR: ' . $e->getMessage();
+                    }
+
+                  ?>
+
                 </ul>
             </div>
             <div class="single-content eightcol last">
@@ -224,6 +271,8 @@
                                 <div class="clearfix"></div>
 
                       ');
+
+                      $urlcontinuacao = "continuar-novo.php?nome=" . $titulohistoriaclick . "&email=" . $varemail . "&tema=" . $generohistoriaclick . "&indice=" . $row[indice] . "&idnarrativa=" . $idnarrativaurl ;
                       
                       if ($row[indice] == 1) {                
                       } else {
@@ -263,7 +312,7 @@
 
                       echo ('
 
-                                <a>Continuar</a>
+                                <a href="' . $urlcontinuacao . '">Continuar</a>
                             </div>
                             <div class="ninecol last">
                               <div class="line"></div>
@@ -284,7 +333,7 @@
                 // Pegando relação de historia e usuario
                 try {
                   $stmt = $connection->prepare('SELECT * FROM tblHistoriaPessoa WHERE relUser = :relemail AND relNarrativa = :idrel');
-                  $stmt->execute(array('relemail' => $varemail, 'idrel' => $idnarrativa));
+                  $stmt->execute(array('relemail' => $varemail, 'idrel' => $idnarrativaurl));
                    
                   $result = $stmt->fetchAll();
 
@@ -312,15 +361,41 @@
            </div>
         </div>
     </div>
-    <div class="bg-red small-space c2a-call">
-    	<div class="container clearfix">
-        	<div class="eightcol first">
-                <h4>Sua mãe sempre disse que você é criativo?<br /><span>Pois então mostre para todo mundo que ela estava falando a verdade e comece uma nova história!</span></h4>
+
+    <?php
+
+      try {
+        $stmt = $connection->prepare('SELECT * FROM tblHistoriaPessoa WHERE relUser = :relemail AND relNarrativa = :idrel');
+        $stmt->execute(array('relemail' => $cookieemail, 'idrel' => $idnarrativaurl));
+         
+        $result = $stmt->fetchAll();
+
+        if (count($result)) {
+        } else {
+
+          echo ('
+            <div class="bg-red small-space c2a-call">
+              <div class="container clearfix">
+                  <div class="eightcol first">
+                        <h4>Sua mãe sempre disse que você é criativo?<br /><span>Pois então mostre para todo mundo que ela estava falando a verdade e comece uma nova história!</span></h4>
+                    </div>
+                    <div class="fourcol last">
+                        <a href="criar-historia.html" class="button large inline t-margin-20">Começar uma história</a>
+                    </div>
+                </div>
             </div>
-            <div class="fourcol last">
-                <a href="criar-historia.html" class="button large inline t-margin-20">Começar uma história</a>
-            </div>
-        </div>
-    </div>
+
+          ');
+
+
+        }
+
+      } catch(PDOException $e) {
+          echo 'ERROR: ' . $e->getMessage();
+      }
+    ?>
+
+
+    
    
  <?php include 'footer.php'; ?>

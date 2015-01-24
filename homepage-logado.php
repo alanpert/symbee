@@ -93,123 +93,104 @@
     });
 </script>
 
-    <div class="ler-uma-historia box">
-    	<h4>Ler uma história</h4>
-        <div class="genero-historia" id="ler-uma-historia">
-            <div class="icon-molde"></div>
-            <div class="icon"></div>
-        </div>
-        <div class="clearfix"></div>
-        <a class="selecione-cat no-select">Selecione o gênero</a>
-        <p class="desc-input">Escolha o gênero que guiará sua história</p>
-        <ul class="fake-select">
-            <li>Aventura e ação</li>
-            <li>Comédia</li>
-            <li>Fantasia</li>
-            <li>Ficção científica</li>
-            <li>Romance</li>
-            <li>Terror</li>
-        </ul>
-        <div class="text-center t-margin-40"><a href="#" class="button inline yellow">Ler</a></div>
-    </div>
     <div class="rank-content space">
-    	<div class="container clearfix">
-        	<h2>Leia as histórias mais votadas</h2>
-        	<p class="desc-title">Precisa de inspiração? Veja o que os beezers mais votados estão fazendo e saiba como entrar no hall da fama das abelhas.</p>
+      <div class="container clearfix">
+          <h2>Leia as histórias mais votadas</h2>
+          <p class="desc-title">Precisa de inspiração? Veja o que os beezers mais votados estão fazendo e saiba como entrar no hall da fama das abelhas.</p>
             <ul class="rank-historias">
-            	<!-- História 1 -->
-            	<li id="hist1">
-                	<a href="single-historia.php"><div class="hist-picture"></div></a>
+              <!-- História 1 -->
+              <li id="hist1">
+                  <a href="single-historia-feita.php"><div class="hist-picture"></div></a>
                 </li>
                 <div id="hist1-content" class="content-hist left">
-                	<h4>O cavaleiro honrado</h4>
+                  <h4>O cavaleiro honrado</h4>
                     <p class="hist-info"><strong>Gênero:</strong> Ação e aventura | <strong>Criador:</strong> CaahZin</p>
-                    <p class="hist-resumo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est et leo mattis pulvinar. Mauris sed hendrerit tortor.</p>
+                    <p class="hist-resumo">A aventura de Sir. Thomas e seu fiel escudeiro Bonério de Sá em busca da lenda da armadura enfeitiçada.</p>
                 </div>
                 <!--------------->
                 
-            	<!-- História 2 -->
-            	<li id="hist2">
-                	<a href="single-historia.php"><div class="hist-picture"></div></a>
+              <!-- História 2 -->
+              <li id="hist2">
+                  <a href="single-historia-feita.php"><div class="hist-picture"></div></a>
                 </li>
                 <div id="hist2-content" class="content-hist right">
-                	<h4>A última corrida</h4>
+                  <h4>A última corrida</h4>
                     <p class="hist-info"><strong>Gênero:</strong> Ação e aventura | <strong>Criador:</strong> RaphaLucena92</p>
-                    <p class="hist-resumo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est et leo mattis pulvinar. Mauris sed hendrerit tortor.</p>
+                    <p class="hist-resumo">O que significa correr para você? Para Sena, correr era mais do que apenas entrar em um carro de formula um e disputar uma corrida. Veja a possível história de tudo que passou por sua cabeça em sua última corrida.</p>
                 </div>
                 <!--------------->
                 
-            	<!-- História 3 -->
-            	<li id="hist3">
-                	<a href="single-historia.php"><div class="hist-picture"></div></a>
+              <!-- História 3 -->
+              <li id="hist3">
+                  <a href="single-historia-feita.php"><div class="hist-picture"></div></a>
                 </li>
                 <div id="hist3-content" class="content-hist left">
-                	<h4>Dragões valentes II: o coração de fogo</h4>
+                  <h4>Dragões valentes II: o coração de fogo</h4>
                     <p class="hist-info"><strong>Gênero:</strong> Fantasia | <strong>Criador:</strong> MikaMiku</p>
-                    <p class="hist-resumo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est et leo mattis pulvinar. Mauris sed hendrerit tortor.</p>
+                    <p class="hist-resumo">Como um dos últimos sobreviventes da raça dos dragões - Drakin, o filho do fogo, precisa encontrar o coração de terra para salvar sua raça.</p>
                 </div>
                 <!--------------->
 
-            	<!-- História 4 -->
-            	<li id="hist4">
-                	<a href="single-historia.php"><div class="hist-picture"></div></a>
+              <!-- História 4 -->
+              <li id="hist4">
+                  <a href="single-historia-feita.php"><div class="hist-picture"></div></a>
                 </li>
                 <div id="hist4-content" class="content-hist right">
-                	<h4>Night whispers</h4>
+                  <h4>Night whispers</h4>
                     <p class="hist-info"><strong>Gênero:</strong> Terror | <strong>Criador:</strong> Cidok</p>
-                    <p class="hist-resumo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est et leo mattis pulvinar. Mauris sed hendrerit tortor.</p>
+                    <p class="hist-resumo">Quando você estiver sozinho e ouvir algo te chamando, jamais busque quem chamou. Suspiros da noite podem ser mais do que apenas a sua imaginação.</p>
                 </div>
                 <!--------------->
                 
-            	<!-- História 5 -->
-            	<li id="hist5">
-                	<a href="single-historia.php"><div class="hist-picture"></div></a>
+              <!-- História 5 -->
+              <li id="hist5">
+                  <a href="single-historia-feita.php"><div class="hist-picture"></div></a>
                 </li>
                 <div id="hist5-content" class="content-hist left">
-                	<h4>Peixolândia</h4>
+                  <h4>Peixolândia</h4>
                     <p class="hist-info"><strong>Gênero:</strong> Comédia | <strong>Criador:</strong> Rita002</p>
-                    <p class="hist-resumo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est et leo mattis pulvinar. Mauris sed hendrerit tortor.</p>
+                    <p class="hist-resumo">O mundo dos peixes sempre foi muito calmo até que um novo presidente (nada normal!!) assume o comando do mar. Agora, DanLham, Mikucha e Ritucha, vão precisar sacudir suas nadadeiras para conseguir convencer o presidente de que ele deve renunciar o poder.</p>
                 </div>
             </ul>
         </div>
     </div>
     <div class="generos-area space bg-gray">
-    	<div class="container clearfix">
-        	<h2>Conheça os genêros</h2>
-        	<p class="desc-title">Está em dúvida de que história fazer? Conheça os gêneros disponíveis aos beezers</p>
+      <div class="container clearfix">
+          <h2>Conheça os genêros</h2>
+          <p class="desc-title">Está em dúvida de que história fazer? Conheça os gêneros disponíveis aos beezers</p>
             <ul class="generos-historias">
-            	<li id="terror">
-                	<div class="icon-molde"></div>
+              <li id="terror">
+                  <div class="icon-molde"></div>
                     <div class="icon"></div>
                     <h4>Terror</h4>
                 </li>
                 
-            	<li id="comedia">
-                	<div class="icon-molde"></div>
+              <li id="comedia">
+                  <div class="icon-molde"></div>
                     <div class="icon"></div>
                     <h4>Comédia</h4>
                 </li>
                 
-            	<li id="romance">
-                	<div class="icon-molde"></div>
+              <li id="romance">
+                  <div class="icon-molde"></div>
                     <div class="icon"></div>
                    <h4>Romance</h4>
                 </li>
                 
-            	<li id="fantasia">
-                	<div class="icon-molde"></div>
+              <li id="fantasia">
+                  <div class="icon-molde"></div>
                     <div class="icon"></div>
                     <h4>Fantasia</h4>
                 </li>
                 
-            	<li id="acao">
-                	<div class="icon-molde"></div>
+              <li id="acao">
+                  <div class="icon-molde"></div>
                     <div class="icon"></div>
                     <h4>Aventura e Ação</h4>
                 </li>
                 
-            	<li id="ficcao">
-                	<div class="icon-molde"></div>
+              <li id="ficcao">
+                  <div class="icon-molde"></div>
                     <div class="icon"></div>
                     <h4>Ficção Científica</h4>
                 </li>

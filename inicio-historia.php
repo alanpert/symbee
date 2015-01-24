@@ -23,7 +23,7 @@
       $generoicone = "fantasia";
       break;
 
-    case "Ficção científica":
+    case "Ficção Científica":
       $generoicone = "ficcao";
       break;
 

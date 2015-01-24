@@ -1,5 +1,25 @@
 // JavaScript Document
 $(document).ready(function() {
+	$('.fancybox-media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {},
+			overlay: {
+				locked: false
+			}
+		}
+	})
+	$('.fancybox-img').fancybox({
+		openEffect  : 'elastic',
+		closeEffect : 'elastic',
+		helpers: {
+			overlay: {
+				locked: false
+			}
+		}
+	})
+	
 	$('html').niceScroll({ cursorwidth: 9, scrollspeed: 90 });
 	$('.list-attualizacoes').niceScroll({ cursorwidth: 5, scrollspeed: 90, cursorcolor: '#000', autohidemode: false });
 	var UserHeight = $(window).height();
@@ -55,7 +75,7 @@ $(document).ready(function() {
 		$('#' + HistID + '-content').removeClass('hovered');
 	});
 	
-	$('.ler-link').click(function(){
+	$('.ler-link, .ler-link-perfil').click(function(){
 		$('.mask').css({display: 'block'}).stop().animate({opacity: .7}, 300);
 		$('.ler-uma-historia').css({display: 'block'}).stop().animate({opacity: 1}, 300);
 	});
@@ -79,13 +99,31 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('.ler-uma-historia-selecione-cat').click(function() {
+		if ( $(this).hasClass('active') ) {
+			$(this).removeClass('active');
+			$('.fake-select').removeClass('open');
+			$('html,body').stop().animate({scrollTop: 60}, 800, 'easeOutExpo');
+		} else {
+			$(this).addClass('active');
+			$('.fake-select').addClass('open');
+			$('html,body').stop().animate({scrollTop: 220}, 800, 'easeOutExpo');
+		}
+	})
+	
 	$('.fake-select li').click(function() {
 		var Genero = $(this).text();
 		$('.fake-select').removeClass('open');
 		$('.selecione-cat').removeClass('active').text(Genero);
+		$('.ler-uma-historia-selecione-cat').removeClass('active').text(Genero);
 		$('.radios').css({display: 'block'}).stop().animate({opacity: 1});
 		// Criar história - passa genero para input hidden
 		$('#genero-historia').val(Genero);
+		$('#genero-historia-ler').val(Genero);
+	});
+	
+	$('.ler-uma-historia-selecione-cat').next().next().click(function() {
+		$('html,body').stop().animate({scrollTop: 60}, 800, 'easeOutExpo');
 	});
 	
 	$('.radios label').click(function() {
@@ -181,7 +219,7 @@ $(document).ready(function() {
 	
 	$('.mask, .editar-capa .button, .sair-pagina .button').click(function(e) {
         $('.mask, .editar-capa, .sair-pagina, .ler-uma-historia, .box-desafio, .box-form').stop().animate({opacity: 0}, 300, function() {
-			$('.mask, .editar-capa, .sair-pagina, .box-desafio, .box-form').css({display: 'none'});
+			$('.mask, .editar-capa, .sair-pagina, .ler-uma-historia, .box-desafio, .box-form').css({display: 'none'});
 		})
     });
 	
@@ -212,7 +250,7 @@ $(document).ready(function() {
 
 
 
-	// EDITADOS BY ALAN
+// EDITADOS BY ALAN
 	
 	// Criar historia
 	$("#btncriar").click(function() {
@@ -278,7 +316,13 @@ $(document).ready(function() {
 		$(".min-caracteres").removeClass("error");
 	});
 
+	// BTN LER HISTORIA
+	$("#ler-btn").click(function() {
+		$("#ler-historia").submit();
 
+		return false;
+	});
+	
 });
 
 // t: current time, b: begInnIng value, c: change In value, d: duration

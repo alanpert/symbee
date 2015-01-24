@@ -44,7 +44,7 @@
       $generoicone = "fantasia";
       break;
 
-    case "Ficção científica":
+    case "Ficção Científica":
       $generoicone = "ficcao";
       break;
 
@@ -197,9 +197,8 @@
         <div class="clearfix"></div>
         <p class="destaque small b-margin-0">
         	<?php echo ($desafiotexto); ?>
-          <br/><br/>
-          Palavra-Chave: <?php echo($palavrachave); ?>
         </p>
+        <p class="palavra-chave">Palavra chave:<br /><span><?php echo($palavrachave); ?></span></p>
     </div>
 </div>
 <div class="space inicio-historia">
